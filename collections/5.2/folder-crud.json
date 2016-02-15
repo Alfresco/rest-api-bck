@@ -1,0 +1,67 @@
+{
+	"id": "73bd8e13-5e01-d184-3894-013cff590e94",
+	"name": "Tests - File Folder",
+	"description": "Tests for the File Folder REST API.",
+	"order": [],
+	"folders": [
+		{
+			"id": "ea6d9637-d620-eb13-6f12-e6688f3ec007",
+			"name": "Folder CRUD",
+			"description": "",
+			"order": [
+				"0f6ac7e2-b359-9d3b-e2b1-f94ff84f9088",
+				"12553308-227b-80e4-c374-d74dc6db8f55"
+			],
+			"owner": "250102",
+			"collectionId": "73bd8e13-5e01-d184-3894-013cff590e94"
+		}
+	],
+	"timestamp": 1452323955241,
+	"owner": "250102",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "0f6ac7e2-b359-9d3b-e2b1-f94ff84f9088",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/-root-/children",
+			"preRequestScript": "postman.setGlobalVariable(\"testFolderName\", \"Test\" + new Date().getTime());\n",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 201\"] = responseCode.code === 201;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Has entry object\"] = jsonData.hasOwnProperty(\"entry\");\n\nvar folderId = jsonData.entry.id;\ntests[\"Has id property\"] = folderId !== null;\npostman.setGlobalVariable(\"testFolderId\", folderId);\n\n",
+			"sandboxFiles": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1453418370440,
+			"name": "Create folder",
+			"description": "",
+			"collectionId": "73bd8e13-5e01-d184-3894-013cff590e94",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"{{testFolderName}}\",\n    \"nodeType\": \"cm:folder\",\n    \"properties\": {\n        \"cm:title\": \"The Title\",\n        \"cm:description\": \"The Description\",\n        \"cm:author\": \"Gavin Cornwell\"\n    }\n}"
+		},
+		{
+			"id": "12553308-227b-80e4-c374-d74dc6db8f55",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{testFolderId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is 204\"] = responseCode.code === 204;",
+			"sandboxFiles": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1453415007966,
+			"name": "Delete node",
+			"description": "",
+			"collectionId": "73bd8e13-5e01-d184-3894-013cff590e94",
+			"responses": [],
+			"rawModeData": ""
+		}
+	]
+}

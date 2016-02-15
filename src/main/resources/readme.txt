@@ -1,0 +1,1 @@
+NOTE: Temporary file to force a JAR to be generated so that "mvn install" works.

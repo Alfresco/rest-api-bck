@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   
+   <parent>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-super-pom</artifactId>
+      <version>6</version>
+   </parent>
+    
+   <artifactId>rest-api-bck</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <name>Alfresco REST API BCK</name>
+   <description>Performs tests to confirm the REST API is backwards compatible</description>
+
+   <properties>
+      <alfresco.platform.version>5.1-FILE-FOLDER-API-SNAPSHOT</alfresco.platform.version>
+      <alfresco.core.version>5.6</alfresco.core.version>
+   </properties>
+   
+   <dependencies>   
+      <dependency>
+         <groupId>org.alfresco</groupId>
+         <artifactId>alfresco-repository</artifactId>
+         <version>${alfresco.platform.version}</version>
+      </dependency>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
+         <version>1.4.182</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Copied PostgreSQL dialect files to generate H2 dialect files on-the-fly -->
+            <plugin>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <executions>
+                  <execution>
+                     <id>get-postgres-dialect</id>
+                     <phase>generate-test-resources</phase>
+                     <goals>
+                         <goal>unpack</goal>
+                     </goals>
+                     <configuration>
+                         <artifactItems>
+                             <artifactItem>
+                                 <groupId>org.alfresco</groupId>
+                                 <artifactId>alfresco-repository</artifactId>
+                                 <version>${alfresco.platform.version}</version>
+                             </artifactItem>
+                         </artifactItems>
+                         <includes>alfresco/dbscripts/create/org.hibernate.dialect.PostgreSQLDialect/*,alfresco/ibatis/org.hibernate.dialect.PostgreSQLDialect/*</includes>
+                         <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+                     </configuration>
+                  </execution>
+               </executions>
+            </plugin>
+            <plugin>
+               <artifactId>maven-antrun-plugin</artifactId>
+               <executions>
+                  <execution>
+                     <id>config-h2-dialect</id>
+                     <phase>generate-test-resources</phase>
+                     <goals>
+                         <goal>run</goal>
+                     </goals>
+                     <configuration>
+                         <target>
+                             <move verbose="true"
+                                file="${project.build.testOutputDirectory}/alfresco/dbscripts/create/org.hibernate.dialect.PostgreSQLDialect"
+                                tofile="${project.build.testOutputDirectory}/alfresco/dbscripts/create/org.hibernate.dialect.H2Dialect" />
+                             <move verbose="true"
+                                file="${project.build.testOutputDirectory}/alfresco/ibatis/org.hibernate.dialect.PostgreSQLDialect"
+                                tofile="${project.build.testOutputDirectory}/alfresco/ibatis/org.hibernate.dialect.H2Dialect" />
+                         </target>
+                     </configuration>
+                  </execution>
+               </executions>
+            </plugin>
+            
+            <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>unpack-alfresco</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.outputDirectory}/war</outputDirectory>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>org.alfresco</groupId>
+                                            <artifactId>alfresco-platform</artifactId>
+                                            <type>war</type>
+                                            <version>${alfresco.platform.version}</version>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    
+            
+            <plugin>
+               <groupId>org.apache.tomcat.maven</groupId>
+               <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <executions>
+                            <execution>
+                                <id>run-embedded</id>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <phase>pre-integration-test</phase>
+                                <configuration>
+                                    <ignorePackaging>true</ignorePackaging>
+                                    <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
+                                    <systemProperties>
+                                        <java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
+                                    </systemProperties>
+                                    <contextFile>${project.basedir}/tomcat/context.xml</contextFile>
+                                    <delegate>true</delegate>
+                                    <fork>true</fork>
+                                </configuration>
+                            </execution>
+                            <!--
+                            <execution>
+      <id>stop-tomcat</id>
+      <phase>post-integration-test</phase>
+      <goals>
+        <goal>shutdown</goal>
+      </goals>
+    </execution>-->
+                        </executions>
+                        <dependencies>
+                    <dependency>
+         <groupId>com.h2database</groupId>
+         <artifactId>h2</artifactId>
+         <version>1.4.182</version>
+      </dependency>
+      </dependencies>
+                    </plugin>
+                    
+                    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+            <id>execute-postman-collections</id>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <phase>integration-test</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>newman</executable>
+          <!-- optional -->
+          <workingDirectory>${project.basedir}</workingDirectory>
+          <arguments>
+            <argument>-c</argument>
+            <argument>collections/5.2/folder-crud.json</argument>
+            <argument>-e</argument>
+            <argument>collections/localhost-env.json</argument>
+            <argument>-o</argument>
+            <argument>target/newman-results-postman.json</argument>
+            <argument>-O</argument>
+            <argument>target/newman-results-wire.log</argument>
+            <argument>-t</argument>
+            <argument>target/newman-results-junit.xml</argument>
+            <argument>-H</argument>
+            <argument>target/newman-results-report.html</argument>
+            <argument>-x</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+        </plugins>
+    </build>
+
+</project>

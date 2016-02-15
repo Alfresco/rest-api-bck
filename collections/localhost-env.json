@@ -1,0 +1,23 @@
+{
+	"id": "11c18a16-5e56-32f1-e382-5bdfb2697864",
+	"name": "Localhost",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/alfresco/api",
+			"type": "text",
+			"name": "baseUrl",
+			"enabled": true
+		},
+		{
+			"key": "networkId",
+			"value": "-default-",
+			"type": "text",
+			"name": "networkId",
+			"enabled": true
+		}
+	],
+	"timestamp": 1455035982385,
+	"synced": false,
+	"syncedFilename": ""
+}
