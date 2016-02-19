@@ -1,0 +1,58 @@
+{
+	"id": "fdd7dcad-662b-e530-b6bb-e567ee87a71e",
+	"name": "Tests - Comments",
+	"description": "Tests for the Comments REST API",
+	"order": [
+		"7c744916-8db1-5c29-f699-e518442731c9",
+		"8654e70f-8766-5165-bca6-89b8b0f67397"
+	],
+	"folders": [],
+	"timestamp": 1455914658101,
+	"owner": "250102",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "7c744916-8db1-5c29-f699-e518442731c9",
+			"headers": "Authorization: Basic dGVzdFVzZXIxOnRlc3RVc2VyMQ==\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/-my-/children",
+			"preRequestScript": "postman.setGlobalVariable(\"testFileName\", \"Test\" + new Date().getTime() + \".txt\");",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"testStatusCodeIs201\"] = responseCode.code === 201;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"testEntryObjectExists\"] = jsonData.hasOwnProperty(\"entry\");\ntests[\"testIdPropertyExists\"] = jsonData.entry.hasOwnProperty(\"id\");\ntests[\"testNamePropertyExists\"] = jsonData.entry.hasOwnProperty(\"name\");\n\n// save file id to global variable\nvar fileId = jsonData.entry.id;\npostman.setGlobalVariable(\"testFileId\", fileId);",
+			"sandboxFiles": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1455916221579,
+			"name": "Create test file",
+			"description": "",
+			"collectionId": "fdd7dcad-662b-e530-b6bb-e567ee87a71e",
+			"responses": [],
+			"rawModeData": "{\n    \"name\": \"{{testFileName}}\",\n    \"nodeType\": \"cm:content\"\n}"
+		},
+		{
+			"id": "8654e70f-8766-5165-bca6-89b8b0f67397",
+			"headers": "Authorization: Basic dGVzdFVzZXIxOnRlc3RVc2VyMQ==\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{testFileId}}/comments",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"testStatusCodeIs201\"] = responseCode.code === 201;",
+			"sandboxFiles": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1455915975172,
+			"name": "Add a comment to a node",
+			"description": "",
+			"collectionId": "fdd7dcad-662b-e530-b6bb-e567ee87a71e",
+			"responses": [],
+			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
+		}
+	]
+}

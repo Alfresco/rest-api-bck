@@ -1,6 +1,6 @@
 {
-	"id": "11c18a16-5e56-32f1-e382-5bdfb2697864",
-	"name": "Localhost",
+	"id": "37750312-4cfe-89fc-4776-1eaabcb59c35",
+	"name": "BCK Tests",
 	"values": [
 		{
 			"key": "baseUrl",
@@ -15,9 +15,51 @@
 			"type": "text",
 			"name": "networkId",
 			"enabled": true
+		},
+		{
+			"key": "adminUsername",
+			"value": "admin",
+			"type": "text",
+			"name": "adminUsername",
+			"enabled": true
+		},
+		{
+			"key": "adminPassword",
+			"value": "admin",
+			"type": "text",
+			"name": "adminPassword",
+			"enabled": true
+		},
+		{
+			"key": "user1Username",
+			"value": "testUser1",
+			"type": "text",
+			"name": "user1Username",
+			"enabled": true
+		},
+		{
+			"key": "user1Password",
+			"value": "testUser1",
+			"type": "text",
+			"name": "user1Password",
+			"enabled": true
+		},
+		{
+			"key": "user2Username",
+			"value": "testUser2",
+			"type": "text",
+			"name": "user2Username",
+			"enabled": true
+		},
+		{
+			"key": "user2Password",
+			"value": "testUser2",
+			"type": "text",
+			"name": "user2Password",
+			"enabled": true
 		}
 	],
-	"timestamp": 1455035982385,
+	"timestamp": 1455912121048,
 	"synced": false,
 	"syncedFilename": ""
 }

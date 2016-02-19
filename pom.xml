@@ -170,7 +170,7 @@
                   </configuration>
                </execution>
                <execution>
-                  <id>execute-postman-collections</id>
+                  <id>execute-nodes-collection</id>
                   <goals>
                      <goal>exec</goal>
                   </goals>
@@ -180,15 +180,39 @@
                      <workingDirectory>${project.basedir}</workingDirectory>
                      <arguments>
                         <argument>-c</argument>
-                        <argument>collections/folder-crud.json</argument>
+                        <argument>collections/nodes.json</argument>
                         <argument>-e</argument>
                         <argument>localhost-env.json</argument>
                         <argument>-O</argument>
-                        <argument>target/folder-crud-wire.log</argument>
+                        <argument>target/nodes-wire.log</argument>
                         <argument>-t</argument>
-                        <argument>target/folder-crud-junit.xml</argument>
+                        <argument>target/nodes-junit.xml</argument>
                         <argument>-H</argument>
-                        <argument>target/folder-crud-report.html</argument>
+                        <argument>target/nodes-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>execute-comments-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/comments.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/comments-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/comments-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/comments-report.html</argument>
                         <argument>-x</argument>
                      </arguments>
                   </configuration>
