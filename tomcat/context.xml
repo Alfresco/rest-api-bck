@@ -9,7 +9,7 @@
      The Alfresco.war 5.0 does not have a webapp (it used to have Alfresco Explorer but not anymore)
      that we will access, so this docBase might not be needed
 -->
-<Context docBase="${project.build.outputDirectory}/war" path="/alfresco">
+<Context docBase="${project.build.directory}/war" path="/alfresco">
 
     <!-- Setup the virtual class path like this:
          1) target/classes
