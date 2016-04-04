@@ -16,7 +16,7 @@
 
    <properties>
       <spring.version>4.1.6.RELEASE</spring.version>
-      <alfresco.platform.version>5.1-FILE-FOLDER-API-SNAPSHOT</alfresco.platform.version>
+      <alfresco.platform.version>5.2-FILE-FOLDER-API-SNAPSHOT</alfresco.platform.version>
    </properties>
 
    <dependencies>
@@ -160,17 +160,7 @@
             <version>1.4.0</version>
             <executions>
                <execution>
-                  <id>load-test-data</id>
-                  <goals>
-                     <goal>java</goal>
-                  </goals>
-                  <phase>integration-test</phase>
-                  <configuration>
-                     <mainClass>org.alfresco.util.DataLoader</mainClass>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>execute-nodes-collection</id>
+                  <id>execute-load-data-collection</id>
                   <goals>
                      <goal>exec</goal>
                   </goals>
@@ -180,15 +170,17 @@
                      <workingDirectory>${project.basedir}</workingDirectory>
                      <arguments>
                         <argument>-c</argument>
-                        <argument>collections/nodes.json</argument>
+                        <argument>collections/load-data.json</argument>
                         <argument>-e</argument>
                         <argument>localhost-env.json</argument>
                         <argument>-O</argument>
-                        <argument>target/nodes-wire.log</argument>
+                        <argument>target/load-data-wire.log</argument>
                         <argument>-t</argument>
-                        <argument>target/nodes-junit.xml</argument>
+                        <argument>target/load-data-junit.xml</argument>
                         <argument>-H</argument>
-                        <argument>target/nodes-report.html</argument>
+                        <argument>target/load-data-report.html</argument>
+                        <argument>-G</argument>
+                        <argument>target/global-variables.json</argument>
                         <argument>-x</argument>
                      </arguments>
                   </configuration>
@@ -207,6 +199,8 @@
                         <argument>collections/comments.json</argument>
                         <argument>-e</argument>
                         <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
                         <argument>-O</argument>
                         <argument>target/comments-wire.log</argument>
                         <argument>-t</argument>

@@ -3,63 +3,147 @@
 	"name": "BCK Tests on Localhost",
 	"values": [
 		{
+			"key": "v0Url",
+			"value": "http://localhost:8080/alfresco/service",
+			"type": "text",
+			"enabled": true
+		},
+		{
+			"enabled": true,
 			"key": "baseUrl",
-			"value": "http://localhost:8080/alfresco/api",
 			"type": "text",
-			"name": "baseUrl",
-			"enabled": true
+			"value": "http://localhost:8080/alfresco/api"
 		},
 		{
+			"enabled": true,
 			"key": "networkId",
-			"value": "-default-",
 			"type": "text",
-			"name": "networkId",
-			"enabled": true
+			"value": "-default-"
 		},
 		{
-			"key": "adminUsername",
-			"value": "admin",
+			"enabled": true,
+			"key": "adminUserName",
 			"type": "text",
-			"name": "adminUsername",
-			"enabled": true
+			"value": "admin"
 		},
 		{
+			"enabled": true,
 			"key": "adminPassword",
-			"value": "admin",
 			"type": "text",
-			"name": "adminPassword",
-			"enabled": true
+			"value": "admin"
 		},
 		{
-			"key": "user1Username",
-			"value": "testUser1",
+			"enabled": true,
+			"key": "user1UserName",
 			"type": "text",
-			"name": "user1Username",
-			"enabled": true
+			"value": "testUser1"
 		},
 		{
+			"enabled": true,
 			"key": "user1Password",
-			"value": "testUser1",
 			"type": "text",
-			"name": "user1Password",
-			"enabled": true
+			"value": "testUser1"
 		},
 		{
-			"key": "user2Username",
-			"value": "testUser2",
+			"enabled": true,
+			"key": "user1FirstName",
 			"type": "text",
-			"name": "user2Username",
-			"enabled": true
+			"value": "Test"
 		},
 		{
+			"enabled": true,
+			"key": "user1LastName",
+			"type": "text",
+			"value": "User1"
+		},
+		{
+			"enabled": true,
+			"key": "user1Email",
+			"type": "text",
+			"value": "test1@alfresco.com"
+		},
+		{
+			"enabled": true,
+			"key": "user2UserName",
+			"type": "text",
+			"value": "testUser2"
+		},
+		{
+			"enabled": true,
 			"key": "user2Password",
-			"value": "testUser2",
 			"type": "text",
-			"name": "user2Password",
+			"value": "testUser2"
+		},
+		{
+			"enabled": true,
+			"key": "user2FirstName",
+			"type": "text",
+			"value": "Test"
+		},
+		{
+			"enabled": true,
+			"key": "user2LastName",
+			"type": "text",
+			"value": "User2"
+		},
+		{
+			"enabled": true,
+			"key": "user2Email",
+			"type": "text",
+			"value": "test2@alfresco.com"
+		},
+		{
+			"enabled": true,
+			"key": "user3UserName",
+			"type": "text",
+			"value": "testUser3"
+		},
+		{
+			"enabled": true,
+			"key": "user3Password",
+			"type": "text",
+			"value": "testUser3"
+		},
+		{
+			"enabled": true,
+			"key": "user3FirstName",
+			"type": "text",
+			"value": "Test"
+		},
+		{
+			"enabled": true,
+			"key": "user3LastName",
+			"type": "text",
+			"value": "User3"
+		},
+		{
+			"enabled": true,
+			"key": "user3Email",
+			"type": "text",
+			"value": "test3@alfresco.com"
+		},
+		{
+			"enabled": true,
+			"key": "user1Auth",
+			"type": "text",
+			"value": "Basic dGVzdFVzZXIxOnRlc3RVc2VyMQ=="
+		},
+		{
+			"enabled": true,
+			"key": "user2Auth",
+			"type": "text",
+			"value": "Basic dGVzdFVzZXIyOnRlc3RVc2VyMg=="
+		},
+		{
+			"key": "adminAuth",
+			"value": "Basic YWRtaW46YWRtaW4=",
+			"type": "text",
 			"enabled": true
 		}
 	],
-	"timestamp": 1455912121048,
+	"team": null,
+	"timestamp": 1458935666557,
 	"synced": false,
-	"syncedFilename": ""
+	"syncedFilename": "",
+	"isDeleted": false
 }
