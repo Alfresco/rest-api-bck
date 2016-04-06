@@ -211,6 +211,60 @@
                      </arguments>
                   </configuration>
                </execution>
+               <!--
+               <execution>
+                  <id>execute-tags-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/tags.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/tags-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/tags-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/tags-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>
+               -->
+               <execution>
+                  <id>execute-ratings-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/ratings.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/ratings-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/ratings-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/ratings-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>
             </executions>
          </plugin>
       </plugins>
