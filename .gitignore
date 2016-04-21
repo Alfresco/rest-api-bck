@@ -1,4 +1,5 @@
 alfresco.log*
+solr.log*
 
 *.class
 

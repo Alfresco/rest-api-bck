@@ -16,6 +16,8 @@
 
    <properties>
       <alfresco.platform.version>5.1.e</alfresco.platform.version>
+      <runtime.solr.folder>${project.build.directory}/alf_data/solr</runtime.solr.folder>
+      <ALFRESCO_SOLR4_DATA_DIR>${runtime.solr.folder}/data</ALFRESCO_SOLR4_DATA_DIR>
    </properties>
 
    <dependencies>
@@ -35,7 +37,7 @@
    <build>
       <plugins>
          <!-- Copied PostgreSQL dialect files to generate H2 dialect files 
-            on-the-fly -->
+              on-the-fly -->
          <plugin>
             <artifactId>maven-dependency-plugin</artifactId>
             <executions>
@@ -75,8 +77,30 @@
                      </artifactItems>
                   </configuration>
                </execution>
+               <!-- Download and unpack the solr4 config zip file -->
+               <execution>
+                  <id>unpack-solr4-config</id>
+                  <phase>generate-resources</phase>
+                  <goals>
+                     <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${project.build.directory}/solr4</outputDirectory>
+                     <artifactItems>
+                        <artifactItem>
+                           <groupId>org.alfresco</groupId>
+                           <artifactId>alfresco-solr4</artifactId>
+                           <version>${alfresco.platform.version}</version>
+                           <classifier>config</classifier>
+                           <overWrite>true</overWrite>
+                           <type>zip</type>
+                        </artifactItem>
+                     </artifactItems>
+                  </configuration>
+               </execution>
             </executions>
          </plugin>
+         
          <plugin>
             <artifactId>maven-antrun-plugin</artifactId>
             <executions>
@@ -99,7 +123,46 @@
                </execution>
             </executions>
          </plugin>
-
+         
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>filter-copy-solr4-config</id>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <phase>generate-resources</phase>
+                  <configuration>
+                     <outputDirectory>${runtime.solr.folder}</outputDirectory>
+                     <resources>
+                        <resource>
+                           <directory>${project.build.directory}/solr4</directory>
+                           <excludes>
+                              <exclude>workspace-SpacesStore/conf/solrcore.properties</exclude>
+                              <exclude>archive-SpacesStore/conf/solrcore.properties</exclude>
+                           </excludes>
+                           <filtering>false</filtering>
+                        </resource>
+                        <resource>
+                           <directory>${project.build.directory}/solr4</directory>
+                           <includes>
+                              <include>workspace-SpacesStore/conf/solrcore.properties</include>
+                              <include>archive-SpacesStore/conf/solrcore.properties</include>
+                           </includes>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>
+                     <useDefaultDelimiters>false</useDefaultDelimiters>
+                     <delimiters>
+                        <delimiter>@@</delimiter>
+                     </delimiters>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         
          <plugin>
             <groupId>org.apache.tomcat.maven</groupId>
             <artifactId>tomcat7-maven-plugin</artifactId>
@@ -116,10 +179,32 @@
                      <useSeparateTomcatClassLoader>true</useSeparateTomcatClassLoader>
                      <systemProperties>
                         <java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
+                        <index.subsystem.name>solr4</index.subsystem.name>
+                        <solr.host>localhost</solr.host>
+                        <solr.secureComms>none</solr.secureComms>
+                        <solr.port>8080</solr.port>
+                        <solr.port.ssl></solr.port.ssl>
+                        <solr.backup.alfresco.numberToKeep>0</solr.backup.alfresco.numberToKeep>
+                        <solr.backup.archive.numberToKeep>0</solr.backup.archive.numberToKeep>
+                        <solr.solr.home>${runtime.solr.folder}</solr.solr.home>
+                        <solr.solr.model.dir>${runtime.solr.folder}/alfrescoModels</solr.solr.model.dir>
+                        <solr.solr.content.dir>${runtime.solr.folder}/content</solr.solr.content.dir>
                      </systemProperties>
-                     <contextFile>${project.basedir}/tomcat/context.xml</contextFile>
+                     <contextFile>${project.basedir}/tomcat/alfresco-context.xml</contextFile>
+                     <tomcatUsers>${project.basedir}/tomcat/tomcat-users.xml</tomcatUsers>
                      <delegate>true</delegate>
                      <fork>true</fork>
+                     <webapps>
+                        <webapp>
+                            <groupId>org.alfresco</groupId>
+                            <artifactId>alfresco-solr4</artifactId>
+                            <version>${alfresco.platform.version}</version>
+                            <contextPath>/solr4</contextPath>
+                            <type>war</type>
+                            <asWebapp>true</asWebapp>
+                            <contextFile>${project.basedir}/tomcat/solr-context.xml</contextFile>
+                        </webapp>
+                    </webapps>
                   </configuration>
                </execution>
             </executions>
