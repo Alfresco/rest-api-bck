@@ -139,10 +139,16 @@
 			"value": "Basic YWRtaW46YWRtaW4=",
 			"type": "text",
 			"enabled": true
+		},
+		{
+			"key": "user3Auth",
+			"value": "Basic dGVzdFVzZXIzOnRlc3RVc2VyMw==",
+			"type": "text",
+			"enabled": true
 		}
 	],
 	"team": null,
-	"timestamp": 1458935666557,
+	"timestamp": 1461061039101,
 	"synced": false,
 	"syncedFilename": "",
 	"isDeleted": false

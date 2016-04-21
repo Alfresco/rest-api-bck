@@ -67,7 +67,12 @@
 			"order": [
 				"af1ced38-6e3c-070b-270e-9df4a1969de8",
 				"56ecf635-60af-a8ee-c4dd-336fa9dbec40",
-				"7624c6e9-4e9e-329d-c317-2bce5c30c8ad"
+				"7624c6e9-4e9e-329d-c317-2bce5c30c8ad",
+				"19a69676-f1c2-16c0-8903-b78c4bd91fbd",
+				"844fb3f2-a262-c39d-2822-c06d87e0d730",
+				"547f3810-8e1f-9abe-98bd-79c82df5dec7",
+				"66145d53-e7bf-e7be-c765-8b27ab9dd1be",
+				"8e20e6fe-dc3d-8fc2-0df3-97f7d9f8a25e"
 			],
 			"owner": "371756",
 			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
@@ -76,13 +81,7 @@
 			"id": "f50347c0-97e8-c96d-84a0-f42a8a88f99c",
 			"name": "5 After",
 			"description": "",
-			"order": [
-				"19a69676-f1c2-16c0-8903-b78c4bd91fbd",
-				"844fb3f2-a262-c39d-2822-c06d87e0d730",
-				"547f3810-8e1f-9abe-98bd-79c82df5dec7",
-				"66145d53-e7bf-e7be-c765-8b27ab9dd1be",
-				"8e20e6fe-dc3d-8fc2-0df3-97f7d9f8a25e"
-			],
+			"order": [],
 			"owner": "371756",
 			"collectionId": "3a0c3f70-f218-a7c3-aa64-bd1fec325d83"
 		}
@@ -124,14 +123,14 @@
 			"version": 2,
 			"tests": "",
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
+			"helperAttributes": {},
 			"time": 1458659998435,
 			"name": "Delete commentId",
 			"description": "Should be already deleted!",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
 			"responses": [],
 			"rawModeData": "",
-			"folder": "f50347c0-97e8-c96d-84a0-f42a8a88f99c"
+			"folder": "6c577a0f-aa40-c914-0d6e-10962826a8e4"
 		},
 		{
 			"id": "2c1d1181-d791-4b1e-b632-0a26f274e8a2",
@@ -265,7 +264,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627970103,
+			"time": 1461241700074,
 			"name": "Negative: Retrieve ratings with negative maxItems",
 			"description": "",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
@@ -311,7 +310,7 @@
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
 			"responses": [],
 			"rawModeData": "",
-			"folder": "f50347c0-97e8-c96d-84a0-f42a8a88f99c"
+			"folder": "6c577a0f-aa40-c914-0d6e-10962826a8e4"
 		},
 		{
 			"id": "56ecf635-60af-a8ee-c4dd-336fa9dbec40",
@@ -372,7 +371,7 @@
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
 			"responses": [],
 			"rawModeData": "",
-			"folder": "f50347c0-97e8-c96d-84a0-f42a8a88f99c"
+			"folder": "6c577a0f-aa40-c914-0d6e-10962826a8e4"
 		},
 		{
 			"id": "6c537b7a-8839-4076-1c2e-c1802cc0efbc",
@@ -404,10 +403,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"fiveStar\");\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"fiveStar\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460629052378,
+			"time": 1461250973815,
 			"name": "Positive: Retrieve five star rating",
 			"description": "",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
@@ -465,14 +464,14 @@
 			"version": 2,
 			"tests": "",
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
+			"helperAttributes": {},
 			"time": 1458742054303,
 			"name": "Delete tag",
 			"description": "Should be already deleted!",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
 			"responses": [],
 			"rawModeData": "",
-			"folder": "f50347c0-97e8-c96d-84a0-f42a8a88f99c"
+			"folder": "6c577a0f-aa40-c914-0d6e-10962826a8e4"
 		},
 		{
 			"id": "8da51ee6-51cc-f628-cbb0-e9588bd9ad70",
@@ -512,7 +511,7 @@
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
 			"responses": [],
 			"rawModeData": "",
-			"folder": "f50347c0-97e8-c96d-84a0-f42a8a88f99c"
+			"folder": "6c577a0f-aa40-c914-0d6e-10962826a8e4"
 		},
 		{
 			"id": "8fc9f0f8-821e-5f2f-e3fe-85533a634d38",
@@ -602,10 +601,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460629083363,
+			"time": 1461250961688,
 			"name": "Positive: Retrieve like rating",
 			"description": "",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
@@ -722,7 +721,7 @@
 			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n/*describeResponse(201, 'RatingPaging', function() {\n    // other body checks\n    it('expect equal lists', function() {\n        expect(JSON.stringify(JSON.parse(globals['ratings']).list.entries)).to.equal(JSON.stringify(response.body.list.entries));\n    });\n    it('expect to equal ' + globals['skipCount'], function(){\n        expect(response.body.pagination.skipCount).to.equal(globals['skipCount']);\n    });\n});*/",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460636368710,
+			"time": 1460702501955,
 			"name": "Positive: Retrieve ratings with high skipCount (TODO)",
 			"description": "",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
@@ -758,10 +757,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect list.entries to have length', function() {\n        expect(response.body.list.entries).to.have.length(JSON.parse(globals['ratings']).list.entries.length);\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect list.entries to have length', function() {\n        expect(response.body.list.entries).to.have.length(JSON.parse(globals['ratings']).list.entries.length);\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460628325510,
+			"time": 1461250939053,
 			"name": "Positive: Retrieve ratings from an other user",
 			"description": "",
 			"collectionId": "d52f7a01-ed14-7828-d269-402cd4cb02e1",
