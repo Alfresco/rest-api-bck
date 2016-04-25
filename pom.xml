@@ -328,7 +328,6 @@
                      </arguments>
                   </configuration>
                </execution>
-               <!--
                <execution>
                   <id>execute-favorites-collection</id>
                   <goals>
@@ -354,8 +353,7 @@
                         <argument>-x</argument>
                      </arguments>
                   </configuration>
-               </execution>
-               -->
+               </execution>	
             </executions>
          </plugin>
       </plugins>
