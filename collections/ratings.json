@@ -9,13 +9,19 @@
 			"name": "1 POST /nodes/{nodeId}/ratings",
 			"description": "",
 			"order": [
+				"e66e38b9-34e3-db25-5672-8d46efdc5f65",
+				"435c4450-4ce8-8e7b-f002-d40e340b9911",
+				"8cba8362-66d3-04cf-c73c-051a83fc9faf",
+				"2d01e18d-84f7-ea2f-9ec6-9d811f1c315d",
+				"374045ae-93f7-314d-65cb-4cca56cd6f36",
+				"73ad0c23-e8dd-804c-28b8-f25c56bba907",
 				"bbeda0e7-80f5-938a-44c6-d9ab5c658d48",
 				"756d86b9-99cc-02b8-a560-4fff47114550",
+				"9002b1b4-baf6-ca97-8a51-cc8ac5595a83",
+				"7bd72e99-fdd0-fc31-08e1-9c10715101bd",
 				"05877b8f-32f7-9220-97c5-3cd9a4ffb04f",
 				"a515cb9e-df4e-7f88-39df-fae84f9bdba1",
-				"374045ae-93f7-314d-65cb-4cca56cd6f36",
 				"bac3bec5-0a07-6d7e-82e6-40f37e6d32b4",
-				"73ad0c23-e8dd-804c-28b8-f25c56bba907",
 				"dcdf11a4-a93c-24a2-382b-ee8e6477f6c3",
 				"af0a1c04-51e0-75f5-c3cc-0a1bef78b857",
 				"caf3ad3f-e2e7-d8eb-b566-1181fd5663c4",
@@ -28,7 +34,7 @@
 				"bbead5fe-9ad6-46d3-4b43-bc461ec81dbc"
 			],
 			"owner": "371756",
-			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		},
 		{
 			"id": "8d250371-8763-3f7c-5487-4d79773f8c62",
@@ -72,7 +78,9 @@
 				"fb02a309-c8ec-0a42-aba3-54dccdc0ffd8",
 				"a2dedde4-dcc6-3e1f-680f-e1897b7ec230",
 				"55e04aca-766c-7efb-526e-a233ba97a381",
-				"7f5d5acf-c1fc-5b43-be28-be4b7a8a97a6"
+				"7f5d5acf-c1fc-5b43-be28-be4b7a8a97a6",
+				"877aa61c-2d4d-b2c9-d4d4-9c47cb0f8570",
+				"e97ed671-4aca-99cb-abcd-0a6544aaffe8"
 			],
 			"owner": "371756",
 			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
@@ -229,6 +237,57 @@
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
 		},
 		{
+			"id": "2d01e18d-84f7-ea2f-9ec6-9d811f1c315d",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root/User Homes/{{user1UserName}}",
+			"preRequestScript": "postman.setGlobalVariable(\"testFolderName\", \"test-\" + new Date().getTime());",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "createFolder",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "propertyId[0]",
+					"value": "cmis:name",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "propertyValue[0]",
+					"value": "test-{{$timestamp}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "propertyId[1]",
+					"value": "cmis:objectTypeId",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "propertyValue[1]",
+					"value": "cmis:folder",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "tests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:objectId\"].value;\npostman.setGlobalVariable(\"folderId\", nodeId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461580003144,
+			"name": "Create folder",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+		},
+		{
 			"id": "374045ae-93f7-314d-65cb-4cca56cd6f36",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments",
@@ -308,6 +367,24 @@
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
 			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+		},
+		{
+			"id": "435c4450-4ce8-8e7b-f002-d40e340b9911",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/sites/{{siteName}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "postman.setGlobalVariable('siteGuid', JSON.parse(responseBody).entry.guid);",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1460959790011,
+			"name": "Retrieve site information",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
 		},
 		{
 			"id": "55e04aca-766c-7efb-526e-a233ba97a381",
@@ -455,6 +532,27 @@
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
 		},
 		{
+			"id": "7bd72e99-fdd0-fc31-08e1-9c10715101bd",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{siteGuid}}/ratings",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461744641479,
+			"name": "Positive: Add like to site",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
+		},
+		{
 			"id": "7f5d5acf-c1fc-5b43-be28-be4b7a8a97a6",
 			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/fiveStar",
@@ -496,6 +594,32 @@
 			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
 		},
 		{
+			"id": "877aa61c-2d4d-b2c9-d4d4-9c47cb0f8570",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{nodeId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "delete",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461682328948,
+			"name": "Delete file",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
+		},
+		{
 			"id": "8956b775-f80e-9c7c-6986-26a1bc36add4",
 			"headers": "Authorization: {{user2Auth}}\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings",
@@ -516,6 +640,27 @@
 			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
 		},
 		{
+			"id": "8cba8362-66d3-04cf-c73c-051a83fc9faf",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: multipart/form-data; boundary=----WebKitFormBoundarysNynRGJNGmF2MSzA\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root/User Homes/{{user1UserName}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "// TODO create this on the site\ntests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:versionSeriesId\"].value;\npostman.setGlobalVariable(\"nodeId\", nodeId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461576021441,
+			"name": "Create file",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"rawModeData": "------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"cmisaction\"\r\n\r\ncreateDocument\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"transaction\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[0]\"\r\n\r\ntest-{{$guid}}\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[0]\"\r\n\r\ncmis:name\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[1]\"\r\n\r\ncmis:document\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[1]\"\r\n\r\ncmis:objectTypeId\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"contentType\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"content\"; filename=\"test-lorem-ipsum.txt\"\r\nContent-Type: text/plain\r\n\r\nInteger justo leo, venenatis quis venenatis nec, accumsan ac massa. Aenean consequat mattis bibendum. Suspendisse erat massa, sodales eu vestibulum vitae, venenatis malesuada velit. In vitae leo non dui luctus rhoncus. Pellentesque in urna sit amet ligula euismod gravida. Suspendisse potenti. Sed nulla massa, luctus vel ultricies sed, fringilla blandit enim. Morbi porta adipiscing iaculis. Duis tincidunt, felis sit amet mollis aliquam, lacus ipsum iaculis quam, ullamcorper iaculis neque sapien a elit. Suspendisse nulla purus, pharetra vel suscipit ut, semper eu neque. Sed pharetra erat non massa ullamcorper ornare. Nam accumsan tellus et mi gravida nec tristique quam venenatis. Etiam vitae ipsum massa. Curabitur elementum, sem auctor convallis mattis, nunc dolor auctor odio, id bibendum enim massa eu ante.\r\n\r\nVestibulum adipiscing erat eu magna sodales ac pharetra erat tempor. Phasellus quis nisl et nisl rutrum ultrices quis nec tellus. Phasellus aliquet adipiscing nunc eu convallis. Suspendisse quam libero, dictum quis posuere at, vestibulum vitae augue. Quisque auctor aliquet urna, vitae euismod lacus consectetur a. Proin vel fringilla nisi. Morbi velit augue, adipiscing eget viverra sit amet, feugiat eu turpis. Proin at quam ligula. Pellentesque quam nisl, semper et suscipit a, hendrerit sit amet mauris. Pellentesque non sagittis odio. Donec venenatis augue interdum ante viverra varius. Sed eget purus eu leo porta sollicitudin in eu mi. Phasellus commodo, urna non volutpat aliquam, velit sem tincidunt quam, et convallis orci est tristique quam. Curabitur leo nulla, auctor ut volutpat sit amet, auctor non augue.\r\n\r\nNam nisi risus, bibendum nec pulvinar sed, dignissim quis lacus. Mauris feugiat mauris nec elit congue porttitor. Cras consectetur metus eu odio porta blandit. Vestibulum viverra lobortis scelerisque. In arcu nulla, bibendum ut pharetra vel, iaculis at tellus. Nulla euismod mi et lacus elementum lobortis. Fusce fringilla bibendum risus, eu eleifend sapien vestibulum in. In vel eros nisi, nec rutrum lacus. Sed egestas tristique vulputate. Proin odio nisl, imperdiet id vehicula a, suscipit non elit. Aliquam ac nunc augue. Duis consequat pharetra ligula. Nunc lorem diam, pretium sed blandit id, malesuada et tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rhoncus mi ac nibh pretium eu auctor orci semper. Aenean interdum, erat nec blandit dapibus, dui lectus gravida ipsum, vel facilisis ligula dolor vitae purus. Nullam nisi tellus, dapibus quis molestie a, luctus eu magna. Phasellus tortor lectus, consectetur vel interdum ut, sodales vel massa. Cras pellentesque urna diam. Sed imperdiet vehicula justo, fermentum auctor est sodales ut.\r\n\r\nSed at viverra nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras malesuada sodales porttitor. Donec semper condimentum ipsum molestie hendrerit. Suspendisse potenti. Donec tempus laoreet nisl in dignissim. Donec ac arcu pretium lacus suscipit gravida. Nullam nec eros vel lectus imperdiet varius. Donec id metus dui. Integer lacus velit, porta eu sodales nec, convallis cursus est.\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA--"
+		},
+		{
 			"id": "8eda0fd9-4c8b-ea16-ae82-c842485e037c",
 			"headers": "Authorization: {{user1Auth}}\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings",
@@ -534,6 +679,27 @@
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
 			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+		},
+		{
+			"id": "9002b1b4-baf6-ca97-8a51-cc8ac5595a83",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{folderId}}/ratings",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461744598678,
+			"name": "Positive: Add like to folder",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
 			"id": "a2dedde4-dcc6-3e1f-680f-e1897b7ec230",
@@ -736,13 +902,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627295755,
-			"name": "Positive: Add like",
+			"time": 1461744706304,
+			"name": "Positive: Add like to file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}",
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
 			"id": "caf3ad3f-e2e7-d8eb-b566-1181fd5663c4",
@@ -826,6 +991,53 @@
 			"responses": [],
 			"rawModeData": "",
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+		},
+		{
+			"id": "e66e38b9-34e3-db25-5672-8d46efdc5f65",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"url": "{{v0Url}}/api/sites",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[request.name] = responseCode.code === 200;\n\npostman.setGlobalVariable('siteName', JSON.parse(responseBody).shortName);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461574114289,
+			"name": "Create public site",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"rawModeData": "{\n    \"shortName\": \"testSitePublic{{$guid}}\",\n    \"title\": \"Test Public Site\",\n    \"description\": \"Public site for BCK testing\",\n    \"sitePreset\": \"site-dashboard\",\n    \"visbility\": \"PUBLIC\"\n}"
+		},
+		{
+			"id": "e97ed671-4aca-99cb-abcd-0a6544aaffe8",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{folderId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "deletetree",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461682343313,
+			"name": "Delete folder",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
 		},
 		{
 			"id": "fb02a309-c8ec-0a42-aba3-54dccdc0ffd8",

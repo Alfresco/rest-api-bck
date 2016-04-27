@@ -70,7 +70,9 @@
 				"955c5c05-113d-2f87-5ac0-8b9344217294",
 				"5af96130-fba7-e67e-c35f-2c3b591a7157",
 				"93743567-44d3-535b-c609-a4ccce235260",
-				"cd3069ce-02f7-ed3e-e574-911c4128171c"
+				"cd3069ce-02f7-ed3e-e574-911c4128171c",
+				"bae2446b-db64-afca-0127-591fc5a3968e",
+				"7bd31929-27af-ee1e-8fce-60060e2405e3"
 			],
 			"owner": "371756",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
@@ -131,11 +133,11 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "tests[\"Create testUser1 test file\"] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:versionSeriesId\"].value;\npostman.setGlobalVariable(\"nodeId\", nodeId);",
+			"tests": "tests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:versionSeriesId\"].value;\npostman.setGlobalVariable(\"nodeId\", nodeId);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461236912181,
-			"name": "Create test user 1 document",
+			"time": 1461741771686,
+			"name": "Create file",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
@@ -171,10 +173,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "// TODO: This will only work once SOLR is enabled for the embedded Tomcat\n\n/*\n\neval(globals['helperFunctions']);\n\ndescribeResponse(405, 'Error');\n*/",
+			"tests": "// TODO: This will only work once SOLR is enabled for the embedded Tomcat\n\n/*\neval(globals['helperFunctions']);\n\ndescribeResponse(405, 'Error');*/",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461236712771,
+			"time": 1461742547137,
 			"name": "Negative: Add comment to a tag (TODO)",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
@@ -380,11 +382,11 @@
 			],
 			"dataMode": "urlencoded",
 			"version": 2,
-			"tests": "tests[\"Create testUser1 test folder\"] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:objectId\"].value;\npostman.setGlobalVariable(\"folderNodeId\", nodeId);",
+			"tests": "tests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:objectId\"].value;\npostman.setGlobalVariable(\"folderNodeId\", nodeId);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461236974914,
-			"name": "Create test user 1 folder",
+			"time": 1461741779318,
+			"name": "Create folder",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": []
@@ -404,6 +406,32 @@
 			"helperAttributes": {},
 			"time": 1461241660056,
 			"name": "Positive: Retrieve only last 2 comments",
+			"description": "",
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
+			"responses": []
+		},
+		{
+			"id": "7bd31929-27af-ee1e-8fce-60060e2405e3",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{folderId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "deletetree",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461742128126,
+			"name": "Delete folder",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": []
@@ -505,6 +533,31 @@
 			"time": 1461236702475,
 			"name": "Negative: Retrieve comments from invalid node",
 			"description": "",
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
+			"responses": []
+		},
+		{
+			"id": "bae2446b-db64-afca-0127-591fc5a3968e",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{nodeId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "delete",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461742131531,
+			"name": "Delete file",
+			"description": "NOTE: This will delete an empty folder but not a folder with children, use \"deletetree\" action for that!",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": []
 		},
@@ -801,7 +854,7 @@
 			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n/*\ndescribeResponse(200, 'CommentPaging', function() {\n    // other body checks\n    it('expect equals lists', function() {\n        expect(JSON.stringify(JSON.parse(globals['comments']).list.entries.slice(2))).equals(JSON.stringify(response.body.list.entries));\n    });\n});*/\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461250737909,
+			"time": 1461742576591,
 			"name": "Positive: Retrieve comments with high skipCount (TODO)",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",

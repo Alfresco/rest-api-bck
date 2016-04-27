@@ -77,10 +77,13 @@
 				"330f0dfd-3ec2-0735-a80a-f247b2bc776f",
 				"01f0adfb-6462-1df9-129c-af47bfa046f8",
 				"dcdebc3f-59d5-0b50-d517-dcfea3c3ec96",
-				"764b976c-b8f3-1412-be9e-2169458f06a3"
+				"fd45c981-211b-d30a-7367-fa51d48d2773",
+				"764b976c-b8f3-1412-be9e-2169458f06a3",
+				"3c32b0aa-759b-1b34-08b3-b6664638ae3e",
+				"4a79461b-9617-db2b-17c4-0a84a3423540"
 			],
 			"owner": "371756",
-			"collectionId": "b546083e-b083-ac8e-2993-3ea3877aa3a7"
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
 		}
 	],
 	"timestamp": 1460442673822,
@@ -274,6 +277,32 @@
 			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
 		},
 		{
+			"id": "3c32b0aa-759b-1b34-08b3-b6664638ae3e",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{nodeId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "delete",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461682328948,
+			"name": "Delete file",
+			"description": "",
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
+			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79"
+		},
+		{
 			"id": "3dc3e9fe-1021-348e-6d74-ce4dd132c83d",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/people/{{user1UserName}}/favorites/invalidF",
@@ -355,6 +384,33 @@
 			"responses": [],
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}",
 			"folder": "2c516666-f005-9c51-92d6-c6f5a3ab4c36"
+		},
+		{
+			"id": "4a79461b-9617-db2b-17c4-0a84a3423540",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/cmis/versions/1.1/browser/root?objectId={{folderId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "cmisaction",
+					"value": "deletetree",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461682343313,
+			"name": "Delete folder",
+			"description": "",
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
+			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79"
 		},
 		{
 			"id": "4e5a4f4b-a9c8-b9c0-7f35-59e0013fdbcc",
@@ -987,6 +1043,26 @@
 			"responses": [],
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}",
 			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce"
+		},
+		{
+			"id": "fd45c981-211b-d30a-7367-fa51d48d2773",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461668572588,
+			"name": "Delete comment",
+			"description": "",
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
+			"responses": [],
+			"rawModeData": ""
 		}
 	]
 }
