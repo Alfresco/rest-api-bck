@@ -16,9 +16,9 @@
 				"5cd52f8a-42d6-4908-a3d3-2ac1520047c3",
 				"83482c76-82d2-ae77-a51f-9d51ec3bcea1",
 				"7f2df529-b09a-419e-967a-1679e764cb26",
-				"eefcc600-55bf-488b-4551-02c394dc1f4a",
 				"925c248c-246c-3876-90b9-d5065464d593",
 				"9f8d21f6-0799-2316-198b-0561dcb55540",
+				"eefcc600-55bf-488b-4551-02c394dc1f4a",
 				"5cd962e0-d5cb-7a6d-a3a7-1d707326e66d",
 				"23cee13b-f333-afe0-1528-379318fcb392",
 				"864ddc10-13d2-2cc7-acf6-a2052bbb18ed",
@@ -31,7 +31,7 @@
 				"5315979a-5707-78b7-0093-92602568aaf5"
 			],
 			"owner": "371756",
-			"collectionId": "b546083e-b083-ac8e-2993-3ea3877aa3a7"
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
 		},
 		{
 			"id": "89b76f9a-360f-7326-ed33-fd978223c2ce",
@@ -47,10 +47,11 @@
 				"b42b3bc7-4b13-849c-b7af-ebadc4de8c3a",
 				"6fdc7044-f3fe-6a06-75b4-e883daabf771",
 				"f1c36ae0-6ec3-0731-9b87-bffc9111301f",
-				"2f7e0717-62f3-f85d-412e-da18583e1aa4"
+				"2f7e0717-62f3-f85d-412e-da18583e1aa4",
+				"28a2e63b-1a87-8f59-f58a-64bbade7fef8"
 			],
 			"owner": "371756",
-			"collectionId": "b546083e-b083-ac8e-2993-3ea3877aa3a7"
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
 		},
 		{
 			"id": "2c516666-f005-9c51-92d6-c6f5a3ab4c36",
@@ -164,13 +165,32 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460959673998,
+			"time": 1461839051707,
 			"name": "Negative: Add file favorite with tag id",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "{\n  \"target\": {\n    \"file\": {\n      \"guid\": \"{{tagId}}\"\n    }\n  }\n}",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n  \"target\": {\n    \"file\": {\n      \"guid\": \"{{tagId}}\"\n    }\n  }\n}"
+		},
+		{
+			"id": "28a2e63b-1a87-8f59-f58a-64bbade7fef8",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/people/{{user1UserName}}/favorites?maxItems=0",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461850842938,
+			"name": "Negative: Retrieve favorites with zero maxItems",
+			"description": "",
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
+			"responses": [],
+			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
 			"id": "28db9b52-3479-ccb9-9bed-0628c0168f25",
@@ -467,13 +487,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460542940278,
-			"name": "Negative: Add site favorite with missing body",
+			"time": 1461838872703,
+			"name": "Negative: Add site favorite with empty body",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n}"
 		},
 		{
 			"id": "575e6659-6847-54aa-f9bc-ce12bc70d0d1",
@@ -555,11 +574,11 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// TODO should be 404\n//describeResponse(404, 'Error');\ndescribeResponse(201);",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO should be 404\n//describeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461574880891,
-			"name": "Negative: Add file favorite with comment id",
+			"time": 1462454933443,
+			"name": "Negative: Add file favorite with comment id (TODO)",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
@@ -599,13 +618,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460546855998,
+			"time": 1461838973549,
 			"name": "Negative: Add file favorite from other user",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "{\n  \"target\": {\n    \"file\": {\n      \"guid\": \"{{nodeId}}\"\n    }\n  }\n}",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n  \"target\": {\n    \"file\": {\n      \"guid\": \"{{nodeId}}\"\n    }\n  }\n}"
 		},
 		{
 			"id": "6fdc7044-f3fe-6a06-75b4-e883daabf771",
@@ -662,13 +680,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.targetGuid,'entry.targetGuid').equals(globals['siteGuid']);\n        expect(response.body.entry.target.site.guid,'entry.target.sige.guid').equals(globals['siteGuid']);\n    });\n});\n\npostman.setGlobalVariable('siteFavoriteEntry', responseBody);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461236157972,
+			"time": 1461850638145,
 			"name": "Positive: Add site favorite",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
 			"id": "83482c76-82d2-ae77-a51f-9d51ec3bcea1",
@@ -724,13 +741,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460543204247,
+			"time": 1461839544990,
 			"name": "Negative: Delete site favorite from other user",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "",
-			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79"
+			"rawModeData": ""
 		},
 		{
 			"id": "925c248c-246c-3876-90b9-d5065464d593",
@@ -933,13 +949,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460542909487,
+			"time": 1461850500449,
 			"name": "Negative: Add site favorite with invalid id",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"invalid\"\n    }\n  }\n}",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"invalid\"\n    }\n  }\n}"
 		},
 		{
 			"id": "dcdebc3f-59d5-0b50-d517-dcfea3c3ec96",
@@ -991,16 +1006,15 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.targetGuid,'entry.targetGuid').equals(globals['siteGuid']);\n        expect(response.body.entry.target.site.guid,'entry.target.sige.guid').equals(globals['siteGuid']);\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO\n//describeResponse(409, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460542677996,
-			"name": "Positive: Add site favorite again",
+			"time": 1461839117908,
+			"name": "Negative: Add site favorite again (TODO)",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
-			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}",
-			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14"
+			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
 			"id": "f08369ae-3eef-81c5-b1f6-df6759379d18",

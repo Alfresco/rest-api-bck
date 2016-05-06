@@ -16,11 +16,11 @@
 				"374045ae-93f7-314d-65cb-4cca56cd6f36",
 				"73ad0c23-e8dd-804c-28b8-f25c56bba907",
 				"bbeda0e7-80f5-938a-44c6-d9ab5c658d48",
-				"756d86b9-99cc-02b8-a560-4fff47114550",
 				"9002b1b4-baf6-ca97-8a51-cc8ac5595a83",
 				"7bd72e99-fdd0-fc31-08e1-9c10715101bd",
-				"05877b8f-32f7-9220-97c5-3cd9a4ffb04f",
 				"a515cb9e-df4e-7f88-39df-fae84f9bdba1",
+				"05877b8f-32f7-9220-97c5-3cd9a4ffb04f",
+				"756d86b9-99cc-02b8-a560-4fff47114550",
 				"bac3bec5-0a07-6d7e-82e6-40f37e6d32b4",
 				"dcdf11a4-a93c-24a2-382b-ee8e6477f6c3",
 				"af0a1c04-51e0-75f5-c3cc-0a1bef78b857",
@@ -42,16 +42,17 @@
 			"description": "",
 			"order": [
 				"8eda0fd9-4c8b-ea16-ae82-c842485e037c",
-				"8956b775-f80e-9c7c-6986-26a1bc36add4",
 				"1a3b875a-cbe3-d2c6-ed2b-e476aff34b44",
 				"417f15d8-84d5-5788-f0fb-45ee6290cd1d",
 				"577f8a78-67a2-f9b4-9fda-905ee85eb41b",
+				"8956b775-f80e-9c7c-6986-26a1bc36add4",
 				"41438f81-0162-8b97-4543-3b31e81c7450",
 				"a63e6313-f1e6-f015-2992-0ac9a3ceb97b",
-				"81ea0193-02e8-b01f-281e-a1586ed923a1"
+				"81ea0193-02e8-b01f-281e-a1586ed923a1",
+				"46269d54-a564-9440-6100-d6c95b0de8ad"
 			],
 			"owner": "371756",
-			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		},
 		{
 			"id": "3eea2b2b-5fc9-2a3e-34fe-44c3ec5e574e",
@@ -60,6 +61,7 @@
 			"order": [
 				"cc7d4099-d000-71c5-f9df-771ea7a27461",
 				"242053b3-f2da-0cb2-634c-762643a54f67",
+				"12ceac10-540c-947e-5943-d5a4bd06175a",
 				"7b149704-1d94-5724-519b-8a93d39d0195",
 				"376a11ef-1df1-c87d-5bf2-e52466c3b8d4"
 			],
@@ -71,6 +73,7 @@
 			"name": "4 DELETE /nodes/{nodeId}/ratings/{ratingId}",
 			"description": "",
 			"order": [
+				"6b661a18-e3dc-17b5-ec76-e539558b02ca",
 				"b5cc05ac-a9ec-8cf7-4ae1-d976c94dc8e9",
 				"b299c92a-1d2e-551c-420f-93dcc2b40a05",
 				"5aded53c-20c7-ba2c-0fec-92a0c521e284",
@@ -83,7 +86,7 @@
 				"e97ed671-4aca-99cb-abcd-0a6544aaffe8"
 			],
 			"owner": "371756",
-			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		}
 	],
 	"timestamp": 1459346258784,
@@ -101,16 +104,15 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO\n//describeResponse(403, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627448868,
-			"name": "Positive: Add like to an other user",
+			"time": 1462270243657,
+			"name": "Negative: Add like to an other user (TODO)",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}",
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
 			"id": "064afbba-07a6-f295-fc20-587c32a5f93e",
@@ -132,6 +134,25 @@
 			"responses": [],
 			"rawModeData": "{\n  \"id\": \"fiveStar\",\n  \"myRating\": true\n}",
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+		},
+		{
+			"id": "12ceac10-540c-947e-5943-d5a4bd06175a",
+			"headers": "Authorization: {{user2Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/likes",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\n//describeResponse(404, 'Error');",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1462453582592,
+			"name": "Negative: Retrieve like rating from another user (TODO)",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": []
 		},
 		{
 			"id": "1a3b875a-cbe3-d2c6-ed2b-e476aff34b44",
@@ -387,6 +408,25 @@
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
 		},
 		{
+			"id": "46269d54-a564-9440-6100-d6c95b0de8ad",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings?maxItems=0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461841256735,
+			"name": "Negative: Retrieve ratings with zero maxItems",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": []
+		},
+		{
 			"id": "55e04aca-766c-7efb-526e-a233ba97a381",
 			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/likes",
@@ -449,6 +489,26 @@
 			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
 		},
 		{
+			"id": "6b661a18-e3dc-17b5-ec76-e539558b02ca",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/likes",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO \n//describeResponse(403);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461936964766,
+			"name": "Negative: Remove like rating from another user (TODO)",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
 			"id": "73ad0c23-e8dd-804c-28b8-f25c56bba907",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags",
@@ -479,16 +539,15 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO\n//describeResponse(409, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627392283,
-			"name": "Positive: Add like again",
+			"time": 1461840766869,
+			"name": "Negative: Add like again (TODO)",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}",
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
 			"id": "7b149704-1d94-5724-519b-8a93d39d0195",
@@ -629,15 +688,14 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect list.entries to have length', function() {\n        expect(response.body.list.entries).to.have.length(JSON.parse(globals['ratings']).list.entries.length);\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\n//describeResponse(404, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461250939053,
-			"name": "Positive: Retrieve ratings from an other user",
+			"time": 1462453533490,
+			"name": "Negative: Retrieve ratings from an other user (TODO)",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": [],
-			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+			"responses": []
 		},
 		{
 			"id": "8cba8362-66d3-04cf-c73c-051a83fc9faf",
@@ -652,12 +710,11 @@
 			"tests": "// TODO create this on the site\ntests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:versionSeriesId\"].value;\npostman.setGlobalVariable(\"nodeId\", nodeId);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461576021441,
+			"time": 1461841798596,
 			"name": "Create file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
 			"rawModeData": "------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"cmisaction\"\r\n\r\ncreateDocument\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"transaction\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[0]\"\r\n\r\ntest-{{$guid}}\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[0]\"\r\n\r\ncmis:name\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[1]\"\r\n\r\ncmis:document\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[1]\"\r\n\r\ncmis:objectTypeId\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"contentType\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"content\"; filename=\"test-lorem-ipsum.txt\"\r\nContent-Type: text/plain\r\n\r\nInteger justo leo, venenatis quis venenatis nec, accumsan ac massa. Aenean consequat mattis bibendum. Suspendisse erat massa, sodales eu vestibulum vitae, venenatis malesuada velit. In vitae leo non dui luctus rhoncus. Pellentesque in urna sit amet ligula euismod gravida. Suspendisse potenti. Sed nulla massa, luctus vel ultricies sed, fringilla blandit enim. Morbi porta adipiscing iaculis. Duis tincidunt, felis sit amet mollis aliquam, lacus ipsum iaculis quam, ullamcorper iaculis neque sapien a elit. Suspendisse nulla purus, pharetra vel suscipit ut, semper eu neque. Sed pharetra erat non massa ullamcorper ornare. Nam accumsan tellus et mi gravida nec tristique quam venenatis. Etiam vitae ipsum massa. Curabitur elementum, sem auctor convallis mattis, nunc dolor auctor odio, id bibendum enim massa eu ante.\r\n\r\nVestibulum adipiscing erat eu magna sodales ac pharetra erat tempor. Phasellus quis nisl et nisl rutrum ultrices quis nec tellus. Phasellus aliquet adipiscing nunc eu convallis. Suspendisse quam libero, dictum quis posuere at, vestibulum vitae augue. Quisque auctor aliquet urna, vitae euismod lacus consectetur a. Proin vel fringilla nisi. Morbi velit augue, adipiscing eget viverra sit amet, feugiat eu turpis. Proin at quam ligula. Pellentesque quam nisl, semper et suscipit a, hendrerit sit amet mauris. Pellentesque non sagittis odio. Donec venenatis augue interdum ante viverra varius. Sed eget purus eu leo porta sollicitudin in eu mi. Phasellus commodo, urna non volutpat aliquam, velit sem tincidunt quam, et convallis orci est tristique quam. Curabitur leo nulla, auctor ut volutpat sit amet, auctor non augue.\r\n\r\nNam nisi risus, bibendum nec pulvinar sed, dignissim quis lacus. Mauris feugiat mauris nec elit congue porttitor. Cras consectetur metus eu odio porta blandit. Vestibulum viverra lobortis scelerisque. In arcu nulla, bibendum ut pharetra vel, iaculis at tellus. Nulla euismod mi et lacus elementum lobortis. Fusce fringilla bibendum risus, eu eleifend sapien vestibulum in. In vel eros nisi, nec rutrum lacus. Sed egestas tristique vulputate. Proin odio nisl, imperdiet id vehicula a, suscipit non elit. Aliquam ac nunc augue. Duis consequat pharetra ligula. Nunc lorem diam, pretium sed blandit id, malesuada et tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rhoncus mi ac nibh pretium eu auctor orci semper. Aenean interdum, erat nec blandit dapibus, dui lectus gravida ipsum, vel facilisis ligula dolor vitae purus. Nullam nisi tellus, dapibus quis molestie a, luctus eu magna. Phasellus tortor lectus, consectetur vel interdum ut, sodales vel massa. Cras pellentesque urna diam. Sed imperdiet vehicula justo, fermentum auctor est sodales ut.\r\n\r\nSed at viverra nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras malesuada sodales porttitor. Donec semper condimentum ipsum molestie hendrerit. Suspendisse potenti. Donec tempus laoreet nisl in dignissim. Donec ac arcu pretium lacus suscipit gravida. Nullam nec eros vel lectus imperdiet varius. Donec id metus dui. Integer lacus velit, porta eu sodales nec, convallis cursus est.\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA--"
 		},
 		{
@@ -673,12 +730,11 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect to have length above 0', function() {\n        expect(response.body.list.entries).to.have.length.above(0,'entries length');\n    });\n});\n\npostman.setGlobalVariable('ratings', JSON.stringify(response.body));",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460628521667,
+			"time": 1462269977549,
 			"name": "Positive: Retrieve ratings",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": [],
-			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+			"responses": []
 		},
 		{
 			"id": "9002b1b4-baf6-ca97-8a51-cc8ac5595a83",
@@ -753,16 +809,15 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.equal(2);\n        expect(response.body.entry.id,\"id\").equals(\"fiveStar\");\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO\n//describeResponse(403, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627495249,
-			"name": "Positive: Add five star to an other user",
+			"time": 1462270271080,
+			"name": "Negative: Add five star to an other user (TODO)",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "{\n  \"id\": \"fiveStar\",\n  \"myRating\": 2\n}",
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+			"rawModeData": "{\n  \"id\": \"fiveStar\",\n  \"myRating\": 2\n}"
 		},
 		{
 			"id": "a63e6313-f1e6-f015-2992-0ac9a3ceb97b",
@@ -839,13 +894,12 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460628027147,
+			"time": 1461936915775,
 			"name": "Positive: Remove like rating",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "",
-			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
+			"rawModeData": ""
 		},
 		{
 			"id": "bac3bec5-0a07-6d7e-82e6-40f37e6d32b4",
@@ -902,7 +956,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461744706304,
+			"time": 1462269721015,
 			"name": "Positive: Add like to file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -943,12 +997,11 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461250961688,
+			"time": 1462270000479,
 			"name": "Positive: Retrieve like rating",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": [],
-			"folder": "3eea2b2b-5fc9-2a3e-34fe-44c3ec5e574e"
+			"responses": []
 		},
 		{
 			"id": "dcdf11a4-a93c-24a2-382b-ee8e6477f6c3",
