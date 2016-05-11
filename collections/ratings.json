@@ -451,7 +451,7 @@
 			"id": "577f8a78-67a2-f9b4-9fda-905ee85eb41b",
 			"headers": "Authorization: {{user1Auth}}\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings?skipCount={{skipCount}}",
-			"preRequestScript": "postman.setGlobalVariable('skipCount', JSON.parse(globals['ratings']).list.pagination.count + 2);",
+			"preRequestScript": "postman.setGlobalVariable('skipCount', JSON.parse(globals['ratings']).list.pagination.totalItems + 2);",
 			"pathVariables": {},
 			"method": "GET",
 			"data": null,
@@ -460,12 +460,11 @@
 			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n/*describeResponse(201, 'RatingPaging', function() {\n    // other body checks\n    it('expect equal lists', function() {\n        expect(JSON.stringify(JSON.parse(globals['ratings']).list.entries)).to.equal(JSON.stringify(response.body.list.entries));\n    });\n    it('expect to equal ' + globals['skipCount'], function(){\n        expect(response.body.pagination.skipCount).to.equal(globals['skipCount']);\n    });\n});*/",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460702501955,
+			"time": 1462953316082,
 			"name": "Positive: Retrieve ratings with high skipCount (TODO)",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": [],
-			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+			"responses": []
 		},
 		{
 			"id": "5aded53c-20c7-ba2c-0fec-92a0c521e284",

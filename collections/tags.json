@@ -39,7 +39,8 @@
 				"8b85725b-2b7c-b6be-859a-b672b5bdf767",
 				"59beaf28-4be0-0a70-3100-10df474db5ba",
 				"84ea5243-cf5b-11bb-f966-12b485f5926b",
-				"7e44fcd7-911e-d473-e356-6d66245fb8eb"
+				"7e44fcd7-911e-d473-e356-6d66245fb8eb",
+				"144728c8-3b84-b5f0-dd7f-189f4b426922"
 			],
 			"owner": "371756",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
@@ -54,7 +55,8 @@
 				"cce602ac-6647-5d3e-20c7-99290ea2bfbf",
 				"a2186b10-8d78-b704-e2a3-2663cee44887",
 				"b929d89b-a78a-f4e3-79a1-8c8d140c0bd3",
-				"5895ffa0-af1e-b937-cfcf-17e662002293"
+				"5895ffa0-af1e-b937-cfcf-17e662002293",
+				"bd5a19d1-71e6-dbee-b399-3e3f2a7bf3fa"
 			],
 			"owner": "371756",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -491,6 +493,7 @@
 			"name": "6 DELETE /nodes/{nodeId}/tags/{tagId}",
 			"description": "",
 			"order": [
+				"56b22cd4-52f2-dc51-e79f-3cee81fd1979",
 				"4a12eb29-55fe-a7d6-b99c-973463685049",
 				"f137e719-651a-ccc0-9650-aeb472b2248c",
 				"1bb6b642-63fb-c9fe-5aa5-48780c8072f0",
@@ -506,7 +509,7 @@
 				"10712795-c48c-c70b-becc-fa6aca098ac2"
 			],
 			"owner": "371756",
-			"collectionId": "079c0b16-c98c-e534-ebca-cbda748a0761"
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
 		}
 	],
 	"timestamp": 1458574690283,
@@ -658,6 +661,25 @@
 			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c"
 		},
 		{
+			"id": "144728c8-3b84-b5f0-dd7f-189f4b426922",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags?maxItems=0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error'); ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461847840680,
+			"name": "Negative: Retrieve tags with zero maxItems",
+			"description": "",
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
+			"responses": []
+		},
+		{
 			"id": "1bb6b642-63fb-c9fe-5aa5-48780c8072f0",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/invalid-id/tags/{{tagId}}",
@@ -681,7 +703,7 @@
 			"id": "24038e60-7728-4a5b-f5e2-8790e3854671",
 			"headers": "Authorization: {{user1Auth}}\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags?skipCount={{skipCount}}",
-			"preRequestScript": "postman.setGlobalVariable('skipCount', JSON.parse(globals['tags']).list.pagination.count + 2);",
+			"preRequestScript": "postman.setGlobalVariable('skipCount', JSON.parse(globals['tags']).list.pagination.totalItems + 2);",
 			"pathVariables": {},
 			"method": "GET",
 			"data": null,
@@ -690,7 +712,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(JSON.stringify(response.body.list.pagination.skipCount)).to.equal(globals['skipCount']);\n        expect(response.body.list.entries).to.be.empty;\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461681233216,
+			"time": 1462953344369,
 			"name": "Positive: Retrieve tags with high skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -876,6 +898,26 @@
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
 			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"rawModeData": ""
+		},
+		{
+			"id": "56b22cd4-52f2-dc51-e79f-3cee81fd1979",
+			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(403, 'Error'); ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461848292161,
+			"name": "Negative: Delete tag from other user",
+			"description": "",
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
+			"responses": [],
 			"rawModeData": ""
 		},
 		{
@@ -1131,10 +1173,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(JSON.stringify(response.body.list.pagination.skipCount)).to.equal(globals['skipCount']);\n        expect(response.body.list.entries).to.be.empty;\n    });\n});",
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461681247255,
+			"time": 1462953365528,
 			"name": "Positive: Retrieve network tags with high skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -1296,6 +1338,25 @@
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
+		},
+		{
+			"id": "bd5a19d1-71e6-dbee-b399-3e3f2a7bf3fa",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/tags?maxItems=0",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error'); ",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1461847931735,
+			"name": "Negative: Retrieve network tags with zero maxItems",
+			"description": "",
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
+			"responses": []
 		},
 		{
 			"id": "c05fc86c-db54-6d3b-4db1-e61b56f9b44c",
