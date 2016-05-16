@@ -66,7 +66,7 @@
 				"376a11ef-1df1-c87d-5bf2-e52466c3b8d4"
 			],
 			"owner": "371756",
-			"collectionId": "de6f1670-8152-0368-0a44-0228e00313e1"
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		},
 		{
 			"id": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
@@ -77,13 +77,13 @@
 				"b5cc05ac-a9ec-8cf7-4ae1-d976c94dc8e9",
 				"b299c92a-1d2e-551c-420f-93dcc2b40a05",
 				"5aded53c-20c7-ba2c-0fec-92a0c521e284",
-				"1a929b4e-16d3-ab64-033f-ce39336218d8",
-				"fb02a309-c8ec-0a42-aba3-54dccdc0ffd8",
 				"a2dedde4-dcc6-3e1f-680f-e1897b7ec230",
 				"55e04aca-766c-7efb-526e-a233ba97a381",
 				"7f5d5acf-c1fc-5b43-be28-be4b7a8a97a6",
+				"1a929b4e-16d3-ab64-033f-ce39336218d8",
 				"877aa61c-2d4d-b2c9-d4d4-9c47cb0f8570",
-				"e97ed671-4aca-99cb-abcd-0a6544aaffe8"
+				"e97ed671-4aca-99cb-abcd-0a6544aaffe8",
+				"99f554df-9c2d-80af-5029-cb05b033dfc4"
 			],
 			"owner": "371756",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
@@ -592,7 +592,7 @@
 		{
 			"id": "7bd72e99-fdd0-fc31-08e1-9c10715101bd",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{siteGuid}}/ratings",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{siteGuid}};13/ratings",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -602,12 +602,11 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461744641479,
-			"name": "Positive: Add like to site",
+			"time": 1463129890307,
+			"name": "Positive: Add like to site with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -719,7 +718,7 @@
 		{
 			"id": "8eda0fd9-4c8b-ea16-ae82-c842485e037c",
 			"headers": "Authorization: {{user1Auth}}\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}};9.3/ratings",
 			"preRequestScript": null,
 			"pathVariables": {},
 			"method": "GET",
@@ -729,8 +728,8 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect to have length above 0', function() {\n        expect(response.body.list.entries).to.have.length.above(0,'entries length');\n    });\n});\n\npostman.setGlobalVariable('ratings', JSON.stringify(response.body));",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1462269977549,
-			"name": "Positive: Retrieve ratings",
+			"time": 1463129920714,
+			"name": "Positive: Retrieve ratings with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": []
@@ -755,6 +754,27 @@
 			"responses": [],
 			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
+		},
+		{
+			"id": "99f554df-9c2d-80af-5029-cb05b033dfc4",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"url": "{{v0Url}}/api/sites/{{siteName}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1460959470690,
+			"name": "Delete public site",
+			"description": "",
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"responses": [],
+			"rawModeData": "",
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
 		},
 		{
 			"id": "a2dedde4-dcc6-3e1f-680f-e1897b7ec230",
@@ -883,7 +903,7 @@
 		{
 			"id": "b5cc05ac-a9ec-8cf7-4ae1-d976c94dc8e9",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/likes",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}};1.23/ratings/likes",
 			"preRequestScript": null,
 			"pathVariables": {},
 			"method": "DELETE",
@@ -893,8 +913,8 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461936915775,
-			"name": "Positive: Remove like rating",
+			"time": 1463129963280,
+			"name": "Positive: Remove like rating with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
@@ -986,7 +1006,7 @@
 		{
 			"id": "cc7d4099-d000-71c5-f9df-771ea7a27461",
 			"headers": "Authorization: {{user1Auth}}\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/ratings/likes",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}};3.1/ratings/likes",
 			"preRequestScript": null,
 			"pathVariables": {},
 			"method": "GET",
@@ -996,8 +1016,8 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1462270000479,
-			"name": "Positive: Retrieve like rating",
+			"time": 1463129939945,
+			"name": "Positive: Retrieve like rating with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": []
@@ -1012,16 +1032,15 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "// TODO: Determine why tagId is not returned (see RA-900)\n//eval(globals['helperFunctions']);\n\n//describeResponse(405, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(405, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1460627707686,
-			"name": "Negative: Add like to a tag (TODO)",
+			"time": 1463408229249,
+			"name": "Negative: Add like to a tag",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}",
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9"
+			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
 			"id": "e1b70963-58a3-aa9f-e2b4-d0486d4e84d1",
@@ -1089,27 +1108,6 @@
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
-		},
-		{
-			"id": "fb02a309-c8ec-0a42-aba3-54dccdc0ffd8",
-			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId}}",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1458742054303,
-			"name": "Delete tag",
-			"description": "Should be already deleted!",
-			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": [],
-			"rawModeData": "",
 			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5"
 		}
 	]

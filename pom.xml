@@ -249,6 +249,84 @@
                   </configuration>
                </execution>
                <execution>
+                  <id>execute-peoples-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/peoples.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/peoples-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/peoples-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/peoples-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>	
+               <execution>
+                  <id>execute-sites-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/sites.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/sites-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/sites-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/sites-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>execute-networks-collection</id>
+                  <goals>
+                     <goal>exec</goal>
+                  </goals>
+                  <phase>integration-test</phase>
+                  <configuration>
+                     <executable>newman</executable>
+                     <workingDirectory>${project.basedir}</workingDirectory>
+                     <arguments>
+                        <argument>-c</argument>
+                        <argument>collections/networks.json</argument>
+                        <argument>-e</argument>
+                        <argument>localhost-env.json</argument>
+                        <argument>-g</argument>
+                        <argument>target/global-variables.json</argument>
+                        <argument>-O</argument>
+                        <argument>target/networks-wire.log</argument>
+                        <argument>-t</argument>
+                        <argument>target/networks-junit.xml</argument>
+                        <argument>-H</argument>
+                        <argument>target/networks-report.html</argument>
+                        <argument>-x</argument>
+                     </arguments>
+                  </configuration>
+               </execution>
+               <execution>
                   <id>execute-comments-collection</id>
                   <goals>
                      <goal>exec</goal>
@@ -274,34 +352,6 @@
                      </arguments>
                   </configuration>
                </execution>
-               <!--
-               <execution>
-                  <id>execute-tags-collection</id>
-                  <goals>
-                     <goal>exec</goal>
-                  </goals>
-                  <phase>integration-test</phase>
-                  <configuration>
-                     <executable>newman</executable>
-                     <workingDirectory>${project.basedir}</workingDirectory>
-                     <arguments>
-                        <argument>-c</argument>
-                        <argument>collections/tags.json</argument>
-                        <argument>-e</argument>
-                        <argument>localhost-env.json</argument>
-                        <argument>-g</argument>
-                        <argument>target/global-variables.json</argument>
-                        <argument>-O</argument>
-                        <argument>target/tags-wire.log</argument>
-                        <argument>-t</argument>
-                        <argument>target/tags-junit.xml</argument>
-                        <argument>-H</argument>
-                        <argument>target/tags-report.html</argument>
-                        <argument>-x</argument>
-                     </arguments>
-                  </configuration>
-               </execution>
-               -->
                <execution>
                   <id>execute-ratings-collection</id>
                   <goals>
@@ -355,7 +405,7 @@
                   </configuration>
                </execution>	
                <execution>
-                  <id>execute-peoples-collection</id>
+                  <id>execute-tags-collection</id>
                   <goals>
                      <goal>exec</goal>
                   </goals>
@@ -365,47 +415,21 @@
                      <workingDirectory>${project.basedir}</workingDirectory>
                      <arguments>
                         <argument>-c</argument>
-                        <argument>collections/peoples.json</argument>
+                        <argument>collections/tags.json</argument>
                         <argument>-e</argument>
                         <argument>localhost-env.json</argument>
                         <argument>-g</argument>
                         <argument>target/global-variables.json</argument>
                         <argument>-O</argument>
-                        <argument>target/peoples-wire.log</argument>
+                        <argument>target/tags-wire.log</argument>
                         <argument>-t</argument>
-                        <argument>target/peoples-junit.xml</argument>
+                        <argument>target/tags-junit.xml</argument>
                         <argument>-H</argument>
-                        <argument>target/peoples-report.html</argument>
+                        <argument>target/tags-report.html</argument>
                         <argument>-x</argument>
                      </arguments>
                   </configuration>
-               </execution>	
-               <execution>
-                  <id>execute-sites-collection</id>
-                  <goals>
-                     <goal>exec</goal>
-                  </goals>
-                  <phase>integration-test</phase>
-                  <configuration>
-                     <executable>newman</executable>
-                     <workingDirectory>${project.basedir}</workingDirectory>
-                     <arguments>
-                        <argument>-c</argument>
-                        <argument>collections/sites.json</argument>
-                        <argument>-e</argument>
-                        <argument>localhost-env.json</argument>
-                        <argument>-g</argument>
-                        <argument>target/global-variables.json</argument>
-                        <argument>-O</argument>
-                        <argument>target/sites-wire.log</argument>
-                        <argument>-t</argument>
-                        <argument>target/sites-junit.xml</argument>
-                        <argument>-H</argument>
-                        <argument>target/sites-report.html</argument>
-                        <argument>-x</argument>
-                     </arguments>
-                  </configuration>
-               </execution>	
+               </execution>
             </executions>
          </plugin>
       </plugins>
