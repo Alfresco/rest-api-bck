@@ -249,7 +249,7 @@
                   </configuration>
                </execution>
                <execution>
-                  <id>execute-peoples-collection</id>
+                  <id>execute-people-collection</id>
                   <goals>
                      <goal>exec</goal>
                   </goals>
@@ -259,17 +259,17 @@
                      <workingDirectory>${project.basedir}</workingDirectory>
                      <arguments>
                         <argument>-c</argument>
-                        <argument>collections/peoples.json</argument>
+                        <argument>collections/people.json</argument>
                         <argument>-e</argument>
                         <argument>localhost-env.json</argument>
                         <argument>-g</argument>
                         <argument>target/global-variables.json</argument>
                         <argument>-O</argument>
-                        <argument>target/peoples-wire.log</argument>
+                        <argument>target/people-wire.log</argument>
                         <argument>-t</argument>
-                        <argument>target/peoples-junit.xml</argument>
+                        <argument>target/people-junit.xml</argument>
                         <argument>-H</argument>
-                        <argument>target/peoples-report.html</argument>
+                        <argument>target/people-report.html</argument>
                         <argument>-x</argument>
                      </arguments>
                   </configuration>
