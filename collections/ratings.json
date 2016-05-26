@@ -723,12 +723,11 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461744598678,
+			"time": 1464016327901,
 			"name": "Positive: Add like to folder",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
-			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -989,7 +988,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1462269721015,
+			"time": 1464016150027,
 			"name": "Positive: Add like to file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
