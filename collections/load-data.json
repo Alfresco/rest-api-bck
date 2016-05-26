@@ -4,6 +4,7 @@
 	"description": "",
 	"order": [
 		"1f429571-2527-c9df-c20a-53d578e87ac0",
+		"0172db8c-9e8d-eafc-0be6-417a81b2787f",
 		"60fb91e0-08ee-1266-ce49-9e6d19962e0a",
 		"9eda0586-2f48-0275-1948-8d9dce6ad481",
 		"32367d9c-aed8-535e-b67e-f513b25e9bd0"
@@ -14,6 +15,24 @@
 	"remoteLink": "",
 	"public": false,
 	"requests": [
+		{
+			"id": "0172db8c-9e8d-eafc-0be6-417a81b2787f",
+			"headers": "",
+			"url": "http://localhost:8085/api-explorer/definitions/alfresco-core.json",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"tests": "// Small workaround that swagger not support any type\nvar schema = JSON.parse(responseBody);\n// Temporarily removed cause that are bugs which needs to be fixed\ndelete schema.definitions.Rating.properties['myRating'];\ndelete schema.definitions.Rating.properties['aggregate'];\ndelete schema.definitions.Preference.properties['value'];\n\n\npostman.setGlobalVariable('alfresco-schema', JSON.stringify(schema));",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464279308809,
+			"name": "Fetch local json schema",
+			"description": "",
+			"collectionId": "ba20fd79-3332-f138-0425-28439feed757",
+			"responses": []
+		},
 		{
 			"id": "1f429571-2527-c9df-c20a-53d578e87ac0",
 			"headers": "",
@@ -62,10 +81,10 @@
 			"method": "GET",
 			"data": [],
 			"dataMode": "params",
-			"tests": "// Small workaround that swagger not support any type\nvar schema = JSON.parse(responseBody);\n// Temporarily removed cause that are bugs which needs to be fixed\ndelete schema.definitions.Rating.properties['myRating'];\ndelete schema.definitions.Rating.properties['aggregate'];\ndelete schema.definitions.Activity.properties['activityType'];\ndelete schema.definitions.SiteMembershipRequest.properties['entry'];\nschema.definitions.SiteMembershipRequest.required.splice(1,1);\ndelete schema.definitions.SiteEntry.properties['entry'];\nschema.definitions.SiteEntry.required.splice(2,1);\ndelete schema.definitions.Person.properties['lastName'];\nschema.definitions.Person.required.splice(4,1);\ndelete schema.definitions.Preference.properties['value'];\nschema.definitions.Preference.required.splice(1,1);\ndelete schema.definitions.Error.properties.error.properties['briefSummary'];\nschema.definitions.Error.properties.error.required.splice(0,1);\n\n\npostman.setGlobalVariable('alfresco-schema', JSON.stringify(schema));",
+			"tests": "// Small workaround that swagger not support any type\nvar schema = JSON.parse(responseBody);\n// Temporarily removed cause that are bugs which needs to be fixed\ndelete schema.definitions.Rating.properties['myRating'];\ndelete schema.definitions.Rating.properties['aggregate'];\ndelete schema.definitions.Activity.properties['activityType'];\ndelete schema.definitions.SiteMembershipRequest.properties['entry'];\nschema.definitions.SiteMembershipRequest.required.splice(1,1);\ndelete schema.definitions.SiteEntry.properties['entry'];\nschema.definitions.SiteEntry.required.splice(2,1);\ndelete schema.definitions.Person.properties['lastName'];\nschema.definitions.Person.required.splice(4,1);\ndelete schema.definitions.Preference.properties['value'];\nschema.definitions.Preference.required.splice(1,1);\n//delete schema.definitions.Error.properties.error.properties['briefSummary'];\n//schema.definitions.Error.properties.error.required.splice(0,1);\n\n\npostman.setGlobalVariable('alfresco-schema', JSON.stringify(schema));",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1463653390068,
+			"time": 1464279370718,
 			"name": "Fetch json schema",
 			"description": "",
 			"collectionId": "ba20fd79-3332-f138-0425-28439feed757",

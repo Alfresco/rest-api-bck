@@ -23,7 +23,8 @@
 				"c05fc86c-db54-6d3b-4db1-e61b56f9b44c",
 				"4cedefca-59f5-e73e-6963-9a284a2e9e2d",
 				"c300fdff-1337-9183-5d93-8f324d3a3251",
-				"a4aa769a-3f79-7c9f-17c8-0a390109eaae"
+				"a4aa769a-3f79-7c9f-17c8-0a390109eaae",
+				"9b52472f-9aed-736b-0499-ef7fa3d5e569"
 			],
 			"owner": "371756",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
@@ -896,7 +897,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(403, 'Error'); ",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461848292161,
+			"time": 1464267326648,
 			"name": "Negative: Delete tag from other user",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -1115,6 +1116,26 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": []
+		},
+		{
+			"id": "9b52472f-9aed-736b-0499-ef7fa3d5e569",
+			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(403, 'Error');",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1464267105714,
+			"name": "Negative: Add tag to a node from an other user",
+			"description": "",
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
+			"responses": [],
+			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
 		},
 		{
 			"id": "9ba26256-efc5-ffb3-12e0-a299b8effd6d",
