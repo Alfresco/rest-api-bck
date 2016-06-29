@@ -436,7 +436,7 @@
    </build>
   <profiles>
     <profile>
-      <id>5.2Collections</id>
+      <id>5.2</id>
       <build>
         <plugins>
           <plugin>
