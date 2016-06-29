@@ -25,6 +25,6 @@ Other usable versions are:
 `5.2.a-EA`
 
 A combinations which shouldn't have failed tests are:
-`mvn clean install`
-`mvn clean install -Dalfresco.platform.version=5.2.a-EA`
-`mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2Collections`
+- `mvn clean install`
+- `mvn clean install -Dalfresco.platform.version=5.2.a-EA`
+- `mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2Collections`
