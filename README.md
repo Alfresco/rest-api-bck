@@ -24,9 +24,9 @@ Other usable and tested versions are:
 
 For including newer collections you can use a profile:
 
-`-P5.2Collections`
+`-P5.2`
 
 A combinations which should work:
 - `mvn clean install`
 - `mvn clean install -Dalfresco.platform.version=5.2.a-EA`
-- `mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2Collections`
+- `mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2`
