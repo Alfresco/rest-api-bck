@@ -16,5 +16,15 @@ To select the version of the repository to execute the tests against override th
 
 `mvn install -Dalfresco.platform.version=5.1.d`
 
+For including newer collections you can use different profiles:
+
+`-P5.2Collections`
+
 Other usable versions are:
+
 `5.2.a-EA`
+
+A combinations which shouldn't have failed tests are:
+`mvn clean install`
+`mvn clean install -Dalfresco.platform.version=5.2.a-EA`
+`mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2Collections`
