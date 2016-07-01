@@ -22,9 +22,10 @@ Other usable and tested versions are:
 
 #### Including newer collections
 
-For including newer collections you can use a profile:
+For including newer collections you can use a profile. The profiles are declared in the pom.xml. 
+Currently used profiles are:
 
-`-P5.2`
+`-P5.2` for version 5.2.x and newer
 
 A combinations which should work:
 - `mvn clean install`
