@@ -74,8 +74,7 @@
 				"3ed541be-44ed-7dec-b65e-33084f9ceb12",
 				"cb63a1a3-3dfe-439c-c616-340d22157158",
 				"66ef9fbf-fa63-d47c-7a2a-3481f70af0bd",
-				"f8fa85da-642b-f14d-d8a4-30dad546d584",
-				"bd8d0bf6-9bda-96f6-4c94-8920c0d12587"
+				"f8fa85da-642b-f14d-d8a4-30dad546d584"
 			],
 			"owner": "371756",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
@@ -93,10 +92,14 @@
 				"389d7df1-1321-60d4-985b-73bd93201797",
 				"b4ec8a81-fb34-4e72-2618-03e554e1ffc0",
 				"c312fb2a-9db6-cd4d-7079-a27904efa565",
-				"833a5796-ca8e-f51c-31c1-6a5d2fa6fa97",
 				"aedd9145-79c1-3ee5-c5e5-b7b3175b1da4",
 				"bae2446b-db64-afca-0127-591fc5a3968e",
-				"7bd31929-27af-ee1e-8fce-60060e2405e3"
+				"7bd31929-27af-ee1e-8fce-60060e2405e3",
+				"5af96130-fba7-e67e-c35f-2c3b591a7157",
+				"93743567-44d3-535b-c609-a4ccce235260",
+				"955c5c05-113d-2f87-5ac0-8b9344217294",
+				"cd3069ce-02f7-ed3e-e574-911c4128171c",
+				"ddf6ba5d-bf06-ebd9-e1cb-c81ce226c761"
 			],
 			"owner": "371756",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
@@ -106,6 +109,7 @@
 	"owner": "371756",
 	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "09949979-0aa0-7af9-efea-346003413a57",
@@ -125,6 +129,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "  {\n    \"content\": \"This is a comment\"\n  }"
 		},
 		{
@@ -144,7 +150,9 @@
 			"name": "Positive: Retrieve comments from node with properties parameter",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "10ad8ee6-4f6a-42dc-f861-521274119be2",
@@ -163,7 +171,9 @@
 			"name": "Positive: Retrieve comments with site id",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "1eb5ed9d-0fe8-870f-26d2-3f649fa60ec4",
@@ -182,7 +192,9 @@
 			"name": "Negative: Retrieve comments with negative maxItems",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "233e468e-2eb6-e99d-5c4f-8437f3077b61",
@@ -196,12 +208,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1461850306871,
 			"name": "Negative: Add empty comment",
 			"description": "content: \"\"",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "  {\n    \"content\": \"\"\n  }"
 		},
 		{
@@ -214,10 +228,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1059\n// expected 400\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10\nif(alfrescoVersion <= 510)\n  describeResponse(200, 'CommentPaging', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(200, 'CommentPaging', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1059\n// expected 400\ndescribeResponse(200, 'CommentPaging', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466591203318,
+			"time": 1468231095773,
 			"name": "(TODO) Negative: Retrieve comments with comment id",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
@@ -260,6 +274,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "{\n    \"shortName\": \"testSitePublic{{$guid}}\",\n    \"title\": \"Test Public Site\",\n    \"description\": \"Public site for BCK testing\",\n    \"sitePreset\": \"site-dashboard\",\n    \"visibility\": \"PUBLIC\"\n}"
 		},
 		{
@@ -292,10 +308,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n// Expected a 401. RA-1096\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10\nif(alfrescoVersion <= 510)\n  describeResponse(500);\nelse if(alfrescoVersion > 510)\n  //describeResponse(400, 'Error');\n  describeResponse(500);\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n// Expected a 401. RA-1096\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion < 520)\n  describeResponse(500);\nelse if(alfrescoVersion >= 520)\n  describeResponse(400,'Error');\nelse \n  describeResponse(999, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1467194911434,
+			"time": 1468239266175,
 			"name": "(TODO) Negative: Retrieve comments with invalid authentication",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
@@ -333,12 +349,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(405, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463640510300,
 			"name": "Negative: Add comment to a tag",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
 		},
 		{
@@ -370,10 +388,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n// Expected a 400. RA-1096\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10\nif(alfrescoVersion <= 510)\n  describeResponse(500);\nelse if(alfrescoVersion > 510)\n  describeResponse(500, 'Error');\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n// Expected a 400. RA-1096\ndescribeResponse(500, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466601889831,
+			"time": 1468231126804,
 			"name": " (TODO) Negative: Retrieve comments with invalid authentication 2",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
@@ -397,6 +415,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "  {\n    \"content\": \"This is a comment\"\n  }"
 		},
 		{
@@ -431,13 +451,34 @@
 			"version": 2,
 			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n\ndescribeResponse(200, 'CommentEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.edited,\"edited\").to.be.true;\n        expect(response.body.entry.canEdit,\"canEdit\").to.be.true;\n        expect(response.body.entry.canDelete,\"canDelete\").to.be.true;\n        expect(response.body.entry.content,\"content\").equals(\"Updated comment\");\n        expect(response.body.entry.createdBy.id,\"createdBy.id\").equals(postman.getEnvironmentVariable(\"user1UserName\"));\n        expect(response.body.entry.createdBy.firstName,\"createdBy.firstname\").equals(postman.getEnvironmentVariable(\"user1FirstName\"));\n        expect(response.body.entry.createdBy.lastName,\"createdBy.lastName\").equals(postman.getEnvironmentVariable(\"user1LastName\"));\n        expect(response.body.entry.createdBy.email,\"createdBy.email\").equals(postman.getEnvironmentVariable(\"user1Email\"));\n    });\n});\n",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129795605,
 			"name": "Positive: Update comment with version number",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "815d42f9-0095-1073-8393-bfb0a1d228f8",
+			"timestamp": null,
 			"rawModeData": "{\n  \"content\": \"Updated comment\"\n}"
+		},
+		{
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"id": "5af96130-fba7-e67e-c35f-2c3b591a7157",
+			"name": "Delete commentId5",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId5}}",
+			"preRequestScript": null,
+			"tests": "\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
 		},
 		{
 			"id": "63354f7b-e425-3bc3-3e8e-c575e77b4f2c",
@@ -496,6 +537,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "815d42f9-0095-1073-8393-bfb0a1d228f8",
+			"folderId": null,
 			"rawModeData": "{\n  \"content\": \"Updated comment\"\n}"
 		},
 		{
@@ -516,6 +559,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -530,12 +575,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(403, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1461236697483,
 			"name": "Negative: Retrieve comments from other user",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"timestamp": null
 		},
 		{
 			"id": "702bf726-b52f-f830-f678-fbd74430b1e9",
@@ -549,12 +596,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129821876,
 			"name": "Positive: Delete comment with version number",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -572,7 +621,9 @@
 			"time": 1463582636301,
 			"name": "Retrieve site information",
 			"description": "",
-			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null
 		},
 		{
 			"id": "73a51511-d31f-371d-d68b-40e32e9073ba",
@@ -618,11 +669,13 @@
 			"tests": "tests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:objectId\"].value;\npostman.setGlobalVariable(\"folderNodeId\", nodeId);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1461741779318,
+			"time": 1467812960328,
 			"name": "Create folder",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null
 		},
 		{
 			"id": "7698b598-b7f0-db15-13a0-6b06a5facadd",
@@ -636,12 +689,14 @@
 			"version": 2,
 			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n\ndescribeResponse(200, 'CommentPaging', function() {\n    // other body checks\n    it('expect equals lists', function() {\n        expect(JSON.stringify(JSON.parse(globals['comments']).list.entries.slice(0,2))).equals(JSON.stringify(response.body.list.entries));\n    });\n});\n",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1461241660056,
 			"name": "Positive: Retrieve last 2 comments",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"timestamp": null
 		},
 		{
 			"id": "7714d2aa-21ce-1479-eb4b-a1dbaed58a0d",
@@ -681,6 +736,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
 		},
 		{
@@ -702,32 +759,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 200;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463584062666,
 			"name": "Delete folder",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
-		},
-		{
-			"id": "833a5796-ca8e-f51c-31c1-6a5d2fa6fa97",
-			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/094c0284-310e-4d52-b81d-4c0215da4a97/comments/{{commentId}}",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n// worked! Tested with Share.\n//describeResponse(404, 'Error');",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1463395682565,
-			"name": "Negative: Update comment from a not joined private site",
-			"description": "",
-			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
-			"rawModeData": ""
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"timestamp": null
 		},
 		{
 			"id": "88cf7f8f-0f15-5c1e-cd0a-efa3c272fae9",
@@ -766,7 +805,9 @@
 			"name": "Negative: Retrieve comments from node with empty network id",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "8d80002b-fb68-76bb-6b84-6b620db01f2b",
@@ -785,7 +826,9 @@
 			"name": "Negative: Retrieve comments from a not joined private site",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "913e95c0-0075-5979-881e-c98100e0d7b0",
@@ -804,7 +847,47 @@
 			"name": "Negative: Retrieve comments with tag id",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
+		},
+		{
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"id": "93743567-44d3-535b-c609-a4ccce235260",
+			"name": "Delete commentId4",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId4}}",
+			"preRequestScript": null,
+			"tests": "\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
+		},
+		{
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"id": "955c5c05-113d-2f87-5ac0-8b9344217294",
+			"name": "Delete commentId2",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId2}}",
+			"preRequestScript": null,
+			"tests": "\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
 		},
 		{
 			"id": "a1e3a9b2-c305-58d5-9f2d-cbc6dedeaf73",
@@ -824,6 +907,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
 		},
 		{
@@ -863,6 +948,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -883,6 +970,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -903,12 +992,14 @@
 			"dataMode": "urlencoded",
 			"tests": "tests[request.name] = responseCode.code === 200;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582696771,
 			"name": "Delete file",
 			"description": "NOTE: This will delete an empty folder but not a folder with children, use \"deletetree\" action for that!",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"timestamp": null
 		},
 		{
 			"id": "bb9c8a0f-a00f-066d-bcdf-2396826a0f56",
@@ -922,33 +1013,15 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'CommentPaging', function() {\n    // other body checks\n    it('first comment expect to have values', function(){\n        var i = 0;\n        postman.setGlobalVariable('commentId4',response.body.list.entries[i].entry.id);\n        expect(response.body.list.entries[i].entry.edited,\"edited\").to.be.false;\n        expect(response.body.list.entries[i].entry.canEdit,\"canEdit\").to.be.true;\n        expect(response.body.list.entries[i].entry.canDelete,\"canDelete\").to.be.true;\n        expect(response.body.list.entries[i].entry.content,\"content\").equals(\"ڠڡڢ\");\n        expect(response.body.list.entries[i].entry.createdBy.id,\"createdBy.id\").equals(postman.getEnvironmentVariable(\"user1UserName\"));\n        expect(response.body.list.entries[i].entry.createdBy.firstName,\"createdBy.firstname\").equals(postman.getEnvironmentVariable(\"user1FirstName\"));\n        expect(response.body.list.entries[i].entry.createdBy.lastName,\"createdBy.lastName\").equals(postman.getEnvironmentVariable(\"user1LastName\"));\n        expect(response.body.list.entries[i].entry.createdBy.email,\"createdBy.email\").equals(postman.getEnvironmentVariable(\"user1Email\"));\n        });\n        \n    it('second comment expect to have values', function(){\n        var i = 1;\n        postman.setGlobalVariable('commentId5',response.body.list.entries[i].entry.id);\n        expect(response.body.list.entries[i].entry.edited,\"edited\").to.be.false;\n        expect(response.body.list.entries[i].entry.canEdit,\"canEdit\").to.be.true;\n        expect(response.body.list.entries[i].entry.canDelete,\"canDelete\").to.be.true;\n        expect(response.body.list.entries[i].entry.content,\"content\").equals(\"\\u67e5\\u770b\\u5168\\u90e8\");\n        expect(response.body.list.entries[i].entry.createdBy.id,\"createdBy.id\").equals(postman.getEnvironmentVariable(\"user1UserName\"));\n        expect(response.body.list.entries[i].entry.createdBy.firstName,\"createdBy.firstame\").equals(postman.getEnvironmentVariable(\"user1FirstName\"));\n        expect(response.body.list.entries[i].entry.createdBy.lastName,\"createdBy.lastName\").equals(postman.getEnvironmentVariable(\"user1LastName\"));\n        expect(response.body.list.entries[i].entry.createdBy.email,\"createdBy.email\").equals(postman.getEnvironmentVariable(\"user1Email\"));\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1464079198196,
 			"name": "Positive: Add multi-byte characters comments",
 			"description": "multi-byte characters",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "[\n  {\n    \"content\": \"ڠڡڢ\"\n  },\n  {\n    \"content\": \"\\u67e5\\u770b\\u5168\\u90e8\"\n  }\n]"
-		},
-		{
-			"id": "bd8d0bf6-9bda-96f6-4c94-8920c0d12587",
-			"headers": "Authorization: {{user2Auth}}\nContent-Type: application/json\n",
-			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/094c0284-310e-4d52-b81d-4c0215da4a97/comments/{{commentId}}",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n//describeResponse(404, 'Error');",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1463395686245,
-			"name": "Negative: Update comment from a not joined private site",
-			"description": "",
-			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": [],
-			"rawModeData": "{\n  \"content\": \"Updated comment\"\n}"
 		},
 		{
 			"id": "c312fb2a-9db6-cd4d-7079-a27904efa565",
@@ -968,6 +1041,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -1002,12 +1077,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'CommentEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.edited,\"edited\").to.be.false;\n        expect(response.body.entry.canEdit,\"canEdit\").to.be.true;\n        expect(response.body.entry.canDelete,\"canDelete\").to.be.true;\n        expect(response.body.entry.content,\"content\").equals(\"?*^&*(,\");\n        expect(response.body.entry.createdBy.id,\"createdBy.id\").equals(postman.getEnvironmentVariable(\"user1UserName\"));\n        expect(response.body.entry.createdBy.firstName,\"createdBy.firstname\").equals(postman.getEnvironmentVariable(\"user1FirstName\"));\n        expect(response.body.entry.createdBy.lastName,\"createdBy.lastName\").equals(postman.getEnvironmentVariable(\"user1LastName\"));\n        expect(response.body.entry.createdBy.email,\"createdBy.email\").equals(postman.getEnvironmentVariable(\"user1Email\"));\n    });\n});\n\npostman.setGlobalVariable(\"commentId2\", response.body.entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1464079187452,
 			"name": "Positive: Add special characters comment",
 			"description": "special characters\n\"?*^&*(,\"",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "  {\n    \"content\": \"?*^&*(,\"\n  }"
 		},
 		{
@@ -1049,6 +1126,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "{\n    \"content\": \"Test Comment 4\"\n}"
 		},
 		{
@@ -1068,7 +1147,9 @@
 			"name": "Negative: Retrieve comments with negative skipCount",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "cb63a1a3-3dfe-439c-c616-340d22157158",
@@ -1111,6 +1192,25 @@
 			"rawModeData": "{\n  \"content\": \"ӉӋӐӞ\"\n}"
 		},
 		{
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"id": "cd3069ce-02f7-ed3e-e574-911c4128171c",
+			"name": "Delete commentId3",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId3}}",
+			"preRequestScript": null,
+			"tests": "\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
+		},
+		{
 			"id": "d082694a-b329-4e95-b350-01fe80794a8a",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{folderNodeId}};3.5/comments",
@@ -1122,12 +1222,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'CommentEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.edited,\"edited\").to.be.false;\n        expect(response.body.entry.canEdit,\"canEdit\").to.be.true;\n        expect(response.body.entry.canDelete,\"canDelete\").to.be.true;\n        expect(response.body.entry.content,\"content\").equals(\"This is a comment\");\n        expect(response.body.entry.createdBy.id,\"createdBy.id\").equals(postman.getEnvironmentVariable(\"user1UserName\"));\n        expect(response.body.entry.createdBy.firstName,\"createdBy.firstname\").equals(postman.getEnvironmentVariable(\"user1FirstName\"));\n        expect(response.body.entry.createdBy.lastName,\"createdBy.lastName\").equals(postman.getEnvironmentVariable(\"user1LastName\"));\n        expect(response.body.entry.createdBy.email,\"createdBy.email\").equals(postman.getEnvironmentVariable(\"user1Email\"));\n    });\n});\n\npostman.setGlobalVariable(\"commentId3\", response.body.entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463472378537,
 			"name": "Positive: Add comment to a folder with version number",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "  {\n    \"content\": \"This is a comment\"\n  }"
 		},
 		{
@@ -1162,12 +1264,33 @@
 			"version": 2,
 			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n\ndescribeResponse(200, 'CommentPaging', function() {\n    // other body checks\n    it('expect to be not empty', function() {\n        expect(response.body.list.entries).to.be.not.empty;\n    });\n});\n\npostman.setGlobalVariable('comments', responseBody);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463125824364,
 			"name": "Positive: Retrieve comments from node",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"timestamp": null
+		},
+		{
+			"folder": "9715b44b-23ca-ce66-9dac-00b09701289e",
+			"id": "ddf6ba5d-bf06-ebd9-e1cb-c81ce226c761",
+			"name": "Delete commentId",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "Should be already deleted!",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId}}",
+			"preRequestScript": null,
+			"tests": "\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c"
 		},
 		{
 			"id": "df211608-e4d3-0ab9-7072-7fef71a1fc60",
@@ -1206,6 +1329,8 @@
 			"description": "We create a site container implicitly by uploading a file to a site.",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"folderId": null,
 			"rawModeData": "------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"siteid\"\r\n\r\n{{privateSiteName}}\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"containerid\"\r\n\r\ndocumentLibrary\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"filedata\"; filename=\"file-{{$guid}}.txt\"\r\nContent-Type: text/plain\r\n\r\nInteger justo leo, venenatis quis venenatis nec, accumsan ac massa. Aenean consequat mattis bibendum. Suspendisse erat massa, sodales eu vestibulum vitae, venenatis malesuada velit. In vitae leo non dui luctus rhoncus. Pellentesque in urna sit amet ligula euismod gravida. Suspendisse potenti. Sed nulla massa, luctus vel ultricies sed, fringilla blandit enim. Morbi porta adipiscing iaculis. Duis tincidunt, felis sit amet mollis aliquam, lacus ipsum iaculis quam, ullamcorper iaculis neque sapien a elit. Suspendisse nulla purus, pharetra vel suscipit ut, semper eu neque. Sed pharetra erat non massa ullamcorper ornare. Nam accumsan tellus et mi gravida nec tristique quam venenatis. Etiam vitae ipsum massa. Curabitur elementum, sem auctor convallis mattis, nunc dolor auctor odio, id bibendum enim massa eu ante.\r\n\r\nVestibulum adipiscing erat eu magna sodales ac pharetra erat tempor. Phasellus quis nisl et nisl rutrum ultrices quis nec tellus. Phasellus aliquet adipiscing nunc eu convallis. Suspendisse quam libero, dictum quis posuere at, vestibulum vitae augue. Quisque auctor aliquet urna, vitae euismod lacus consectetur a. Proin vel fringilla nisi. Morbi velit augue, adipiscing eget viverra sit amet, feugiat eu turpis. Proin at quam ligula. Pellentesque quam nisl, semper et suscipit a, hendrerit sit amet mauris. Pellentesque non sagittis odio. Donec venenatis augue interdum ante viverra varius. Sed eget purus eu leo porta sollicitudin in eu mi. Phasellus commodo, urna non volutpat aliquam, velit sem tincidunt quam, et convallis orci est tristique quam. Curabitur leo nulla, auctor ut volutpat sit amet, auctor non augue.\r\n\r\nNam nisi risus, bibendum nec pulvinar sed, dignissim quis lacus. Mauris feugiat mauris nec elit congue porttitor. Cras consectetur metus eu odio porta blandit. Vestibulum viverra lobortis scelerisque. In arcu nulla, bibendum ut pharetra vel, iaculis at tellus. Nulla euismod mi et lacus elementum lobortis. Fusce fringilla bibendum risus, eu eleifend sapien vestibulum in. In vel eros nisi, nec rutrum lacus. Sed egestas tristique vulputate. Proin odio nisl, imperdiet id vehicula a, suscipit non elit. Aliquam ac nunc augue. Duis consequat pharetra ligula. Nunc lorem diam, pretium sed blandit id, malesuada et tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rhoncus mi ac nibh pretium eu auctor orci semper. Aenean interdum, erat nec blandit dapibus, dui lectus gravida ipsum, vel facilisis ligula dolor vitae purus. Nullam nisi tellus, dapibus quis molestie a, luctus eu magna. Phasellus tortor lectus, consectetur vel interdum ut, sodales vel massa. Cras pellentesque urna diam. Sed imperdiet vehicula justo, fermentum auctor est sodales ut.\r\n\r\nSed at viverra nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras malesuada sodales porttitor. Donec semper condimentum ipsum molestie hendrerit. Suspendisse potenti. Donec tempus laoreet nisl in dignissim. Donec ac arcu pretium lacus suscipit gravida. Nullam nec eros vel lectus imperdiet varius. Donec id metus dui. Integer lacus velit, porta eu sodales nec, convallis cursus est.\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA--\r\n"
 		},
 		{
@@ -1220,12 +1345,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'CommentEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.edited,\"edited\").to.be.false;\n        expect(response.body.entry.content,\"content\").equals(\"This is a comment\");\n    });\n});\npostman.setGlobalVariable(\"commentId\", response.body.entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1464700844232,
 			"name": "Positive: Add comment to a file",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "03a21c48-d7f0-70e7-e8aa-941b459cb9c7",
+			"timestamp": null,
 			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
 		},
 		{
@@ -1265,6 +1392,8 @@
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
 			"responses": [],
+			"folder": "815d42f9-0095-1073-8393-bfb0a1d228f8",
+			"folderId": null,
 			"rawModeData": "{\n  \"content\": \"ӉӋӐӞ\"\n}"
 		},
 		{
@@ -1325,7 +1454,9 @@
 			"name": "Negative: Retrieve comments from node with invalid network id",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",
-			"responses": []
+			"responses": [],
+			"folder": "50a8cb4c-38d8-b4be-ad47-103b4b06e50b",
+			"folderId": null
 		},
 		{
 			"id": "ff2d057e-1658-ab53-55cf-a814c8332627",
@@ -1337,10 +1468,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n/* RA-964\n* expected 200\n*/\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10\nif(alfrescoVersion <= 510)\n  describeResponse(500, 'Error');\nelse if(alfrescoVersion > 510)\n  describeResponse(500, 'Error');\nelse \n  describeResponse(999, 'Error');\n",
+			"tests": "// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n/* RA-964\n* expected 200\n*/\ndescribeResponse(500, 'Error');\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466591126594,
+			"time": 1468231074019,
 			"name": " (TODO) Positive: Retrieve comments with high skipCount",
 			"description": "",
 			"collectionId": "a098c1a5-7f14-47de-b85a-e6711d45b10c",

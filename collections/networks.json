@@ -57,6 +57,7 @@
 	"owner": "371756",
 	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "1ced6d8b-1baf-dd55-6023-1dee0ab7acde",
@@ -488,10 +489,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n// RA-1061\n// The status code should be 400, for now we're using the incorrect status code so we validate the schema\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(500, 'Error');\nelse if(alfrescoVersion > 510)\n  describeResponse(500, 'Error');\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n// RA-1061\n// The status code should be 400, for now we're using the incorrect status code so we validate the schema\ndescribeResponse(500, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466602130302,
+			"time": 1468231382400,
 			"name": "Negative: Get network informations with empty person id (TODO)",
 			"description": "",
 			"collectionId": "fb36bd4c-63c4-aa4c-101a-3606df026db8",

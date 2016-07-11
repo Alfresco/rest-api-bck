@@ -507,7 +507,10 @@
 				"b37ff7a7-4523-8b2c-e7ed-9c1fcf20eab3",
 				"3a6f7748-0103-621b-89e1-dfab03682439",
 				"2fef136b-a72a-5563-f087-5b7f4cbe06d0",
-				"10712795-c48c-c70b-becc-fa6aca098ac2"
+				"10712795-c48c-c70b-becc-fa6aca098ac2",
+				"03e58af8-87a2-b9d7-c9b2-899c0085bd02",
+				"0f63c872-5137-26c7-29da-a25796e5a10f",
+				"29129874-4524-b769-9823-237f246d7e9a"
 			],
 			"owner": "371756",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
@@ -517,6 +520,7 @@
 	"owner": "371756",
 	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "01142b2e-2210-0ec1-264d-87253a6f9ae0",
@@ -539,6 +543,25 @@
 			"rawModeData": "{\n    \"shortName\": \"testSitePublic{{$guid}}\",\n    \"title\": \"Test Public Site\",\n    \"description\": \"Public site for BCK testing\",\n    \"sitePreset\": \"site-dashboard\",\n    \"visbility\": \"PUBLIC\"\n}"
 		},
 		{
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"id": "03e58af8-87a2-b9d7-c9b2-899c0085bd02",
+			"name": "Delete tagId6",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId6}}",
+			"preRequestScript": null,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
+		},
+		{
 			"id": "058908dd-3e7c-c3b8-7a40-3d588d7203dc",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId2}}",
@@ -550,12 +573,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 204;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582817151,
 			"name": "Delete tagId2",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -576,6 +601,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "[\n  {\n    \"tag\":\"\\u67e5\\u770b\\u5168\\u90e8\"\n  },\n  {\n    \"tag\":\"\\u67e5\\u770b\\u5168\\u91e8\"\n  },\n  {\n    \"tag\":\"%^&%&$^√Ç¬£@\"\n  }\n]"
 		},
 		{
@@ -588,14 +614,33 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-905 tag is not deleted\n// expected 404\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(200, 'TagEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(200, 'TagEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-905 tag is not deleted\n// expected 404\ndescribeResponse(200, 'TagEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466676285057,
+			"time": 1468231935969,
 			"name": "(TODO) Negative: Retrieve deleted tag",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": []
+		},
+		{
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"id": "0f63c872-5137-26c7-29da-a25796e5a10f",
+			"name": "Delete tagId",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "Should be already deleted!",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId}}",
+			"preRequestScript": null,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
 		},
 		{
 			"id": "10712795-c48c-c70b-becc-fa6aca098ac2",
@@ -609,12 +654,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 200;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582356735,
 			"name": "Delete site",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -634,7 +681,9 @@
 			"name": "Negative: Retrieve tags with zero maxItems",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb",
+			"folderId": null
 		},
 		{
 			"id": "1bb6b642-63fb-c9fe-5aa5-48780c8072f0",
@@ -654,6 +703,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
 			"rawModeData": ""
 		},
 		{
@@ -668,12 +718,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.list.entries).to.be.empty;\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463407094861,
 			"name": "Positive: Retrieve tags with high skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb",
+			"timestamp": null
 		},
 		{
 			"id": "28200743-7bd4-2f17-a7f3-a95ea8982fe8",
@@ -687,13 +739,34 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 204;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582823247,
 			"name": "Delete tagId4",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
+		},
+		{
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"id": "29129874-4524-b769-9823-237f246d7e9a",
+			"name": "Delete comment",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId}}",
+			"preRequestScript": "",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823"
 		},
 		{
 			"id": "2fef136b-a72a-5563-f087-5b7f4cbe06d0",
@@ -718,7 +791,9 @@
 			"name": "Delete file",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"folderId": null
 		},
 		{
 			"id": "329f7fd8-0cbd-4a62-c59d-ebec1dc5e98e",
@@ -732,12 +807,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 201;\n\n// save the new nodeId\nvar jsonData = JSON.parse(responseBody);\nvar nodeId = jsonData.properties[\"cmis:versionSeriesId\"].value;\npostman.setGlobalVariable(\"nodeId\", nodeId);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582326216,
 			"name": "Create file",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"timestamp": null,
 			"rawModeData": "------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"cmisaction\"\r\n\r\ncreateDocument\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"transaction\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[0]\"\r\n\r\ntest-{{$guid}}\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[0]\"\r\n\r\ncmis:name\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[1]\"\r\n\r\ncmis:document\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[1]\"\r\n\r\ncmis:objectTypeId\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"contentType\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"content\"; filename=\"test-lorem-ipsum.txt\"\r\nContent-Type: text/plain\r\n\r\nInteger justo leo, venenatis quis venenatis nec, accumsan ac massa. Aenean consequat mattis bibendum. Suspendisse erat massa, sodales eu vestibulum vitae, venenatis malesuada velit. In vitae leo non dui luctus rhoncus. Pellentesque in urna sit amet ligula euismod gravida. Suspendisse potenti. Sed nulla massa, luctus vel ultricies sed, fringilla blandit enim. Morbi porta adipiscing iaculis. Duis tincidunt, felis sit amet mollis aliquam, lacus ipsum iaculis quam, ullamcorper iaculis neque sapien a elit. Suspendisse nulla purus, pharetra vel suscipit ut, semper eu neque. Sed pharetra erat non massa ullamcorper ornare. Nam accumsan tellus et mi gravida nec tristique quam venenatis. Etiam vitae ipsum massa. Curabitur elementum, sem auctor convallis mattis, nunc dolor auctor odio, id bibendum enim massa eu ante.\r\n\r\nVestibulum adipiscing erat eu magna sodales ac pharetra erat tempor. Phasellus quis nisl et nisl rutrum ultrices quis nec tellus. Phasellus aliquet adipiscing nunc eu convallis. Suspendisse quam libero, dictum quis posuere at, vestibulum vitae augue. Quisque auctor aliquet urna, vitae euismod lacus consectetur a. Proin vel fringilla nisi. Morbi velit augue, adipiscing eget viverra sit amet, feugiat eu turpis. Proin at quam ligula. Pellentesque quam nisl, semper et suscipit a, hendrerit sit amet mauris. Pellentesque non sagittis odio. Donec venenatis augue interdum ante viverra varius. Sed eget purus eu leo porta sollicitudin in eu mi. Phasellus commodo, urna non volutpat aliquam, velit sem tincidunt quam, et convallis orci est tristique quam. Curabitur leo nulla, auctor ut volutpat sit amet, auctor non augue.\r\n\r\nNam nisi risus, bibendum nec pulvinar sed, dignissim quis lacus. Mauris feugiat mauris nec elit congue porttitor. Cras consectetur metus eu odio porta blandit. Vestibulum viverra lobortis scelerisque. In arcu nulla, bibendum ut pharetra vel, iaculis at tellus. Nulla euismod mi et lacus elementum lobortis. Fusce fringilla bibendum risus, eu eleifend sapien vestibulum in. In vel eros nisi, nec rutrum lacus. Sed egestas tristique vulputate. Proin odio nisl, imperdiet id vehicula a, suscipit non elit. Aliquam ac nunc augue. Duis consequat pharetra ligula. Nunc lorem diam, pretium sed blandit id, malesuada et tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rhoncus mi ac nibh pretium eu auctor orci semper. Aenean interdum, erat nec blandit dapibus, dui lectus gravida ipsum, vel facilisis ligula dolor vitae purus. Nullam nisi tellus, dapibus quis molestie a, luctus eu magna. Phasellus tortor lectus, consectetur vel interdum ut, sodales vel massa. Cras pellentesque urna diam. Sed imperdiet vehicula justo, fermentum auctor est sodales ut.\r\n\r\nSed at viverra nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras malesuada sodales porttitor. Donec semper condimentum ipsum molestie hendrerit. Suspendisse potenti. Donec tempus laoreet nisl in dignissim. Donec ac arcu pretium lacus suscipit gravida. Nullam nec eros vel lectus imperdiet varius. Donec id metus dui. Integer lacus velit, porta eu sodales nec, convallis cursus est.\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA--"
 		},
 		{
@@ -752,12 +829,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n    it('expect to have length above 0', function() {\n        expect(response.body.list.entries).to.have.length.above(0,'entries length');\n    });\n});\n\npostman.setGlobalVariable('tags', responseBody);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463130051254,
 			"name": "Positive: Retrieve tags with version number",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb",
+			"timestamp": null
 		},
 		{
 			"id": "3a6f7748-0103-621b-89e1-dfab03682439",
@@ -783,7 +862,9 @@
 			"name": "Delete folder",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"folderId": null
 		},
 		{
 			"id": "4a12eb29-55fe-a7d6-b99c-973463685049",
@@ -797,12 +878,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204); ",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463130083669,
 			"name": "Positive: Delete tag with version number",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -823,6 +906,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "{\n    \"tag\":\"tag 1 again\"\n}"
 		},
 		{
@@ -842,7 +926,8 @@
 			"name": "Positive: Retrieve only last 2 network tags",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783"
 		},
 		{
 			"id": "52362d83-76e8-9435-4d7c-5c0e77559dd9",
@@ -862,6 +947,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
 			"rawModeData": ""
 		},
 		{
@@ -876,12 +962,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 204;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582820831,
 			"name": "Delete tagId3",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -902,6 +990,8 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -921,7 +1011,8 @@
 			"name": "Negative: Retrieve network tags with negative maxItems",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783"
 		},
 		{
 			"id": "59beaf28-4be0-0a70-3100-10df474db5ba",
@@ -940,7 +1031,8 @@
 			"name": "Negative: Retrieve tags from another account",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "629aae6c-9588-a06c-9f8b-bbdc0c6c1217",
@@ -980,7 +1072,8 @@
 			"name": "Negative: Retrieve tag with invalid tag id",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "622435db-211a-63fd-2dd1-f1509cfa11cf"
 		},
 		{
 			"id": "6926a5b5-ceb3-f080-8fdd-81206354c99e",
@@ -994,12 +1087,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n});\n\npostman.setGlobalVariable('networkTags', responseBody);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463407165121,
 			"name": "Positive: Retrieve network tags",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783",
+			"timestamp": null
 		},
 		{
 			"id": "6b0c87b8-be83-d3a0-e329-0bd6d87376ab",
@@ -1018,7 +1113,8 @@
 			"name": "Positive: Retrieve only last 2 tags",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "72f03689-047d-2ab7-65de-8524297e6cc5",
@@ -1038,6 +1134,8 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"folderId": null,
 			"rawModeData": "{\n    \"tag\" : \"tag 1\"\n}"
 		},
 		{
@@ -1057,7 +1155,8 @@
 			"name": "Negative: Retrieve tags with negative maxItems",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "81986ec6-e0bb-d0d3-aa7d-a92914855db0",
@@ -1071,12 +1170,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(404, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1461674925574,
 			"name": "Negative: Update tag with invalid tag id",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "f301bb4c-8582-1d63-d745-65bb1393b727",
+			"timestamp": null,
 			"rawModeData": "{\n  \"tag\": \"Updated side tag 1\"\n}"
 		},
 		{
@@ -1096,7 +1197,8 @@
 			"name": "Negative: Retrieve tags with negative skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "8b85725b-2b7c-b6be-859a-b672b5bdf767",
@@ -1115,7 +1217,8 @@
 			"name": "Negative: Retrieve tags from invalid node",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "9b52472f-9aed-736b-0499-ef7fa3d5e569",
@@ -1135,6 +1238,8 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"folderId": null,
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
 		},
 		{
@@ -1185,7 +1290,9 @@
 			"name": "Create folder",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"folderId": null
 		},
 		{
 			"id": "a2186b10-8d78-b704-e2a3-2663cee44887",
@@ -1199,12 +1306,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'TagPaging', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1462953365528,
 			"name": "Positive: Retrieve network tags with high skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783",
+			"timestamp": null
 		},
 		{
 			"id": "a42c9f3c-00f2-bfcb-eb7c-4c0bef83d135",
@@ -1223,7 +1332,8 @@
 			"name": "Positive: Retrieve but skip the first 2 tags",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ef25080b-b885-a95c-204b-90d2af1e9abb"
 		},
 		{
 			"id": "a4aa769a-3f79-7c9f-17c8-0a390109eaae",
@@ -1243,6 +1353,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "{\n}"
 		},
 		{
@@ -1263,6 +1374,8 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"folderId": null,
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
 		},
 		{
@@ -1276,7 +1389,7 @@
 			"dataMode": "params",
 			"tests": "postman.setGlobalVariable('siteGuid', JSON.parse(responseBody).entry.guid);",
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
+			"helperAttributes": {},
 			"time": 1460959790011,
 			"name": "Retrieve site information",
 			"description": "",
@@ -1293,10 +1406,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1002\n// expect 409\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'TagEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'TagEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');\n",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1002\n// expect 409\n\ndescribeResponse(201, 'TagEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466676252211,
+			"time": 1468231899299,
 			"name": "(TODO) Negative: Add tag to file again",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -1315,12 +1428,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 204;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582825590,
 			"name": "Delete tagId5",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "6c22c782-639b-657d-e51d-7c6136b6686c",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -1340,7 +1455,8 @@
 			"name": "Negative: Retrieve network tags with negative skipCount",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783"
 		},
 		{
 			"id": "ba24d6f1-74c3-b8ec-1d87-cce2dd3b69b7",
@@ -1354,12 +1470,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'TagEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.tag,\"tag\").equals(\"tag 1\");\n    });\n});\n\npostman.setGlobalVariable(\"tagId\", response.body.entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582970738,
 			"name": "Positive: Add tag to file with version number",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
+			"timestamp": null,
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
 		},
 		{
@@ -1379,7 +1497,9 @@
 			"name": "Negative: Retrieve network tags with zero maxItems",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783",
+			"folderId": null
 		},
 		{
 			"id": "c05fc86c-db54-6d3b-4db1-e61b56f9b44c",
@@ -1399,6 +1519,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}"
 		},
 		{
@@ -1418,7 +1539,8 @@
 			"name": "Positive: Retrieve tag",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "622435db-211a-63fd-2dd1-f1509cfa11cf"
 		},
 		{
 			"id": "c300fdff-1337-9183-5d93-8f324d3a3251",
@@ -1438,6 +1560,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "{\n    \"tag\":\"\"\n}"
 		},
 		{
@@ -1458,6 +1581,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "ff171584-9ce6-54bf-cf3c-8b188d5391ee",
 			"rawModeData": "{\n    \"tag\" : \"tag 1\"\n}"
 		},
 		{
@@ -1477,7 +1601,8 @@
 			"name": "Positive: Retrieve network tags but skip the first 2",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
-			"responses": []
+			"responses": [],
+			"folder": "ce87d293-e5fb-adc8-9b35-5e958cb92783"
 		},
 		{
 			"id": "d5247376-1b57-a926-19d9-9fc7189ef3d9",
@@ -1497,6 +1622,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "f301bb4c-8582-1d63-d745-65bb1393b727",
 			"rawModeData": "{\n}"
 		},
 		{
@@ -1517,6 +1643,7 @@
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "f301bb4c-8582-1d63-d745-65bb1393b727",
 			"rawModeData": "{\n  \"tag\": \"\"\n}"
 		},
 		{
@@ -1529,10 +1656,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-905\n// expected 404\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(204);\nelse if(alfrescoVersion > 510)\n  describeResponse(204);\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-905\n// expected 404\ndescribeResponse(204);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466676277874,
+			"time": 1468231924146,
 			"name": "(TODO) Negative: Delete deleted tag",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
@@ -1551,12 +1678,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\n// RA-903\n/*describeResponse(200, 'TagEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.tag,\"tag\").equals(\"Updated tag 1\");\n        expect(response.body.entry.id,\"id\").equals(globals[\"tagId\"]);\n    });\n});*/",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1466590171689,
 			"name": "Positive: Update tag from a node (TODO)",
 			"description": "",
 			"collectionId": "71c78dc8-bb3d-4937-b325-2c0ad9954823",
 			"responses": [],
+			"folder": "f301bb4c-8582-1d63-d745-65bb1393b727",
+			"timestamp": null,
 			"rawModeData": "{\n  \"tag\": \"Updated tag 1\"\n}"
 		}
 	]

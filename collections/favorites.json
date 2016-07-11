@@ -92,7 +92,9 @@
 				"0ec97d56-6305-0ca1-8e6c-bde143dc84c5",
 				"764b976c-b8f3-1412-be9e-2169458f06a3",
 				"3c32b0aa-759b-1b34-08b3-b6664638ae3e",
-				"4a79461b-9617-db2b-17c4-0a84a3423540"
+				"4a79461b-9617-db2b-17c4-0a84a3423540",
+				"dcdebc3f-59d5-0b50-d517-dcfea3c3ec96",
+				"fd45c981-211b-d30a-7367-fa51d48d2773"
 			],
 			"owner": "371756",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
@@ -102,6 +104,7 @@
 	"owner": "371756",
 	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "01f0adfb-6462-1df9-129c-af47bfa046f8",
@@ -135,11 +138,13 @@
 			"dataMode": "params",
 			"tests": "tests[request.name] = responseCode.code === 200;\n\npostman.setGlobalVariable('siteGuid', JSON.parse(responseBody).entry.guid);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582612405,
 			"name": "Retrieve site information",
 			"description": "",
-			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
+			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14",
+			"timestamp": null
 		},
 		{
 			"id": "0ec97d56-6305-0ca1-8e6c-bde143dc84c5",
@@ -159,6 +164,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -179,6 +186,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -199,6 +208,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -213,12 +224,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'FavoritePaging', function() {\n    // other body checks\n    it('expect to be not empty', function() {\n        expect(response.body.list.entries).to.be.not.empty;\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1462963113472,
 			"name": "Positive: Retrieve only file favorites with -me-",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"timestamp": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -259,6 +272,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -273,12 +288,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'FavoritePaging', function() {\n    // other body checks\n    it('expect to be not empty', function() {\n        expect(response.body.list.entries).to.be.not.empty;\n    });\n});\n\npostman.setGlobalVariable('favorites', responseBody);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1466520168145,
 			"name": "Positive: Retrieve favorites",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -470,6 +487,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -484,12 +503,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'FavoriteEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(responseBody).equals(globals['fileFavoriteEntry']);\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1462963139759,
 			"name": "Positive: Retrieve file favorite with -me-",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "2c516666-f005-9c51-92d6-c6f5a3ab4c36",
+			"timestamp": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -552,12 +573,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'FavoritePaging', function() {\n    // other body checks\n    it('expect to be empty', function() {\n        expect(response.body.list.entries).to.be.empty;\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1462953125296,
 			"name": "Positive: Retrieve favorites with high skipCount",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"timestamp": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -578,6 +601,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -592,12 +617,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(400, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1461838872703,
 			"name": "Negative: Add site favorite with empty body",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14",
+			"timestamp": null,
 			"rawModeData": "{\n}"
 		},
 		{
@@ -680,10 +707,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-938\n//expected 404;\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-938\n//expected 404;\ndescribeResponse(201, 'FavoriteEntry', function() {\n  // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466602041691,
+			"time": 1468231252536,
 			"name": "(TODO) Negative: Add file favorite with comment id",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
@@ -740,10 +767,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n// RA-1061\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(500, 'Error');\nelse if(alfrescoVersion > 510)\n  //describeResponse(400, 'Error');\n  describeResponse(500, 'Error');\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n// RA-1061\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion < 520)\n  describeResponse(500);\nelse if(alfrescoVersion >= 520)\n  describeResponse(400,'Error');\nelse \n  describeResponse(999, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1467195473231,
+			"time": 1468239474410,
 			"name": "(TODO) Negaitve: Retrieve favorites wiht invalid where parameter",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
@@ -870,6 +897,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -890,6 +919,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "2c516666-f005-9c51-92d6-c6f5a3ab4c36",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -930,6 +961,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "2c516666-f005-9c51-92d6-c6f5a3ab4c36",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -944,12 +977,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.targetGuid,'entry.targetGuid').equals(globals['nodeId']);\n        expect(response.body.entry.target.file.guid,'entry.target.file.guid').equals(globals['nodeId']);\n    });\n});\n\npostman.setGlobalVariable('fileFavoriteEntry', responseBody);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129542743,
 			"name": "Positive: Add file favorite with -me-",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14",
+			"timestamp": null,
 			"rawModeData": "{\n  \"target\": {\n    \"file\": {\n      \"guid\": \"{{nodeId}}\"\n    }\n  }\n}"
 		},
 		{
@@ -1052,6 +1087,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "89b76f9a-360f-7326-ed33-fd978223c2ce",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -1067,7 +1104,7 @@
 			"tests": "eval(globals['helperFunctions']);\n\n//expected 404. REPO-?\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(400, 'Error');\nelse if(alfrescoVersion > 510)\n  describeResponse(404, 'Error');\nelse \n  describeResponse(999, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466588447842,
+			"time": 1468233540154,
 			"name": "(TODO) Negative: Add site favorite with invalid id 2",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
@@ -1127,12 +1164,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1462963186053,
 			"name": "Positive: Delete file favorite with -me-",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -1156,6 +1195,25 @@
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"invalid\"\n    }\n  }\n}"
 		},
 		{
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"id": "dcdebc3f-59d5-0b50-d517-dcfea3c3ec96",
+			"name": "Delete tag",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId}}",
+			"preRequestScript": null,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
+		},
+		{
 			"id": "e238a82b-42b6-9c78-1dea-0198478bc02a",
 			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
 			"url": "{{baseUrl}}/{{$guid}}/public/alfresco/versions/1/people/{{user1UserName}}/favorites/{{siteFavoriteId}}",
@@ -1173,6 +1231,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -1193,6 +1253,8 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "74b62e47-6c9e-ec9f-4433-8103540dcf14",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
 		},
 		{
@@ -1224,10 +1286,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-983\n//describeResponse(409, 'Error');\n// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n/* RA-964\n* expected 200\n*/\n// if Alfresco version <= 5.1.0\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'FavoriteEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');\n",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-983\n//describeResponse(409, 'Error');\n// Load Postman BDD ... use http://chaijs.com/ for expressions\neval(globals['helperFunctions']);\n/* RA-964\n* expected 200\n*/\ndescribeResponse(201, 'FavoriteEntry', function() {\n  // other body checks\n});\n",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466602012998,
+			"time": 1468231230233,
 			"name": "(TODO) Negative: Add site favorite again",
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
@@ -1294,7 +1356,28 @@
 			"description": "",
 			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33",
 			"responses": [],
+			"folder": "2c516666-f005-9c51-92d6-c6f5a3ab4c36",
+			"folderId": null,
 			"rawModeData": "{\n  \"target\": {\n    \"site\": {\n      \"guid\": \"{{siteGuid}}\"\n    }\n  }\n}"
+		},
+		{
+			"folder": "b03bf051-9949-157b-0706-ae7d29a4ec79",
+			"id": "fd45c981-211b-d30a-7367-fa51d48d2773",
+			"name": "Delete comment",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "Authorization: {{user1Auth}}\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId}}",
+			"preRequestScript": "",
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "9d685891-df9c-d565-8cea-c341d2b26a33"
 		}
 	]
 }

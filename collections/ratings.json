@@ -84,7 +84,9 @@
 				"7f5d5acf-c1fc-5b43-be28-be4b7a8a97a6",
 				"877aa61c-2d4d-b2c9-d4d4-9c47cb0f8570",
 				"e97ed671-4aca-99cb-abcd-0a6544aaffe8",
-				"99f554df-9c2d-80af-5029-cb05b033dfc4"
+				"99f554df-9c2d-80af-5029-cb05b033dfc4",
+				"1a929b4e-16d3-ab64-033f-ce39336218d8",
+				"fb02a309-c8ec-0a42-aba3-54dccdc0ffd8"
 			],
 			"owner": "371756",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
@@ -94,6 +96,7 @@
 	"owner": "371756",
 	"remoteLink": "",
 	"public": false,
+	"published": false,
 	"requests": [
 		{
 			"id": "05877b8f-32f7-9220-97c5-3cd9a4ffb04f",
@@ -105,10 +108,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n// expected 403\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n// expected 403\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669458029,
+			"time": 1468231657026,
 			"name": "(TODO) Negative: Add like to an other user",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -146,10 +149,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1012\n// expected 404\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(200, 'RatingEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(200, 'RatingEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1012\n// expected 404\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669509196,
+			"time": 1468231709216,
 			"name": "(TODO) Negative: Retrieve like rating from another user",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -174,6 +177,25 @@
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
 			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62"
+		},
+		{
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"id": "1a929b4e-16d3-ab64-033f-ce39336218d8",
+			"name": "Delete commentId",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "Should be already deleted!",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/comments/{{commentId}}",
+			"preRequestScript": null,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		},
 		{
 			"id": "1fa06b75-32f9-1a8e-4b0a-019ae0d1c03e",
@@ -300,12 +322,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 201;\npostman.setGlobalVariable(\"commentId\", JSON.parse(responseBody).entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582520632,
 			"name": "Add comment",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null,
 			"rawModeData": "{\n    \"content\": \"This is a comment\"\n}"
 		},
 		{
@@ -379,11 +403,13 @@
 			"dataMode": "params",
 			"tests": "tests[request.name] = responseCode.code === 200;\npostman.setGlobalVariable('siteGuid', JSON.parse(responseBody).entry.guid);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582535495,
 			"name": "Retrieve site information",
 			"description": "",
-			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null
 		},
 		{
 			"id": "46269d54-a564-9440-6100-d6c95b0de8ad",
@@ -402,7 +428,9 @@
 			"name": "Negative: Retrieve ratings with zero maxItems",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62",
+			"folderId": null
 		},
 		{
 			"id": "55e04aca-766c-7efb-526e-a233ba97a381",
@@ -435,10 +463,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n// RA-937\n// expected 200\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(500, 'Error');\nelse if(alfrescoVersion > 510)\n  //describeResponse(400, 'Error');\n  describeResponse(500, 'Error');\nelse \n  describeResponse(999, 'Error');",
+			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n// RA-937\n// expected 200\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion < 520)\n  describeResponse(500);\nelse if(alfrescoVersion >= 520)\n  describeResponse(400,'Error');\nelse \n  describeResponse(999, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1467195103664,
+			"time": 1468239300126,
 			"name": "(TODO) Positive: Retrieve ratings with to high skipCount",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -475,10 +503,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n// expected 403 or 404\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(204);\nelse if(alfrescoVersion > 510)\n  describeResponse(204);\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n// expected 403 or 404\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669518539,
+			"time": 1468231719415,
 			"name": "(TODO) Negative: Remove like rating from another user",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -497,12 +525,14 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 201;\npostman.setGlobalVariable(\"tagId\", JSON.parse(responseBody).entry.id);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582514992,
 			"name": "Add tag",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null,
 			"rawModeData": "{\n    \"tag\":\"tag 1\"\n}\n"
 		},
 		{
@@ -515,10 +545,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-1001\n// expected 409\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// TODO RA-1001\n// expected 409\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669465149,
+			"time": 1468231666906,
 			"name": "(TODO)Negative: Add like again",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -578,12 +608,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129890307,
 			"name": "Positive: Add like to site with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null,
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -645,12 +677,14 @@
 			"dataMode": "urlencoded",
 			"tests": "tests[request.name] = responseCode.code === 200;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582584214,
 			"name": "Delete file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"timestamp": null
 		},
 		{
 			"id": "8956b775-f80e-9c7c-6986-26a1bc36add4",
@@ -662,10 +696,10 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1012\n// expected 404\n\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(200, 'RatingPaging', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(200, 'RatingPaging', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1012\n// expected 404\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669497084,
+			"time": 1468231697089,
 			"name": "(TODO) Negative: Retrieve ratings from an other user",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -689,6 +723,8 @@
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"folderId": null,
 			"rawModeData": "------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"cmisaction\"\r\n\r\ncreateDocument\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"transaction\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[0]\"\r\n\r\ntest-{{$guid}}\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[0]\"\r\n\r\ncmis:name\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyValue[1]\"\r\n\r\ncmis:document\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"propertyId[1]\"\r\n\r\ncmis:objectTypeId\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"contentType\"\r\n\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA\r\nContent-Disposition: form-data; name=\"content\"; filename=\"test-lorem-ipsum.txt\"\r\nContent-Type: text/plain\r\n\r\nInteger justo leo, venenatis quis venenatis nec, accumsan ac massa. Aenean consequat mattis bibendum. Suspendisse erat massa, sodales eu vestibulum vitae, venenatis malesuada velit. In vitae leo non dui luctus rhoncus. Pellentesque in urna sit amet ligula euismod gravida. Suspendisse potenti. Sed nulla massa, luctus vel ultricies sed, fringilla blandit enim. Morbi porta adipiscing iaculis. Duis tincidunt, felis sit amet mollis aliquam, lacus ipsum iaculis quam, ullamcorper iaculis neque sapien a elit. Suspendisse nulla purus, pharetra vel suscipit ut, semper eu neque. Sed pharetra erat non massa ullamcorper ornare. Nam accumsan tellus et mi gravida nec tristique quam venenatis. Etiam vitae ipsum massa. Curabitur elementum, sem auctor convallis mattis, nunc dolor auctor odio, id bibendum enim massa eu ante.\r\n\r\nVestibulum adipiscing erat eu magna sodales ac pharetra erat tempor. Phasellus quis nisl et nisl rutrum ultrices quis nec tellus. Phasellus aliquet adipiscing nunc eu convallis. Suspendisse quam libero, dictum quis posuere at, vestibulum vitae augue. Quisque auctor aliquet urna, vitae euismod lacus consectetur a. Proin vel fringilla nisi. Morbi velit augue, adipiscing eget viverra sit amet, feugiat eu turpis. Proin at quam ligula. Pellentesque quam nisl, semper et suscipit a, hendrerit sit amet mauris. Pellentesque non sagittis odio. Donec venenatis augue interdum ante viverra varius. Sed eget purus eu leo porta sollicitudin in eu mi. Phasellus commodo, urna non volutpat aliquam, velit sem tincidunt quam, et convallis orci est tristique quam. Curabitur leo nulla, auctor ut volutpat sit amet, auctor non augue.\r\n\r\nNam nisi risus, bibendum nec pulvinar sed, dignissim quis lacus. Mauris feugiat mauris nec elit congue porttitor. Cras consectetur metus eu odio porta blandit. Vestibulum viverra lobortis scelerisque. In arcu nulla, bibendum ut pharetra vel, iaculis at tellus. Nulla euismod mi et lacus elementum lobortis. Fusce fringilla bibendum risus, eu eleifend sapien vestibulum in. In vel eros nisi, nec rutrum lacus. Sed egestas tristique vulputate. Proin odio nisl, imperdiet id vehicula a, suscipit non elit. Aliquam ac nunc augue. Duis consequat pharetra ligula. Nunc lorem diam, pretium sed blandit id, malesuada et tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rhoncus mi ac nibh pretium eu auctor orci semper. Aenean interdum, erat nec blandit dapibus, dui lectus gravida ipsum, vel facilisis ligula dolor vitae purus. Nullam nisi tellus, dapibus quis molestie a, luctus eu magna. Phasellus tortor lectus, consectetur vel interdum ut, sodales vel massa. Cras pellentesque urna diam. Sed imperdiet vehicula justo, fermentum auctor est sodales ut.\r\n\r\nSed at viverra nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras malesuada sodales porttitor. Donec semper condimentum ipsum molestie hendrerit. Suspendisse potenti. Donec tempus laoreet nisl in dignissim. Donec ac arcu pretium lacus suscipit gravida. Nullam nec eros vel lectus imperdiet varius. Donec id metus dui. Integer lacus velit, porta eu sodales nec, convallis cursus est.\r\n\r\n------WebKitFormBoundarysNynRGJNGmF2MSzA--"
 		},
 		{
@@ -703,12 +739,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingPaging', function() {\n    // other body checks\n    it('expect to have length above 0', function() {\n        expect(response.body.list.entries).to.have.length.above(0,'entries length');\n    });\n});\n\npostman.setGlobalVariable('ratings', JSON.stringify(response.body));",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129920714,
 			"name": "Positive: Retrieve ratings with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62",
+			"timestamp": null
 		},
 		{
 			"id": "9002b1b4-baf6-ca97-8a51-cc8ac5595a83",
@@ -728,6 +766,8 @@
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"folderId": null,
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -747,7 +787,9 @@
 			"name": "Positive: Retrieve ratings with site id",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "8d250371-8763-3f7c-5487-4d79773f8c62",
+			"folderId": null
 		},
 		{
 			"id": "99f554df-9c2d-80af-5029-cb05b033dfc4",
@@ -767,6 +809,8 @@
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"folderId": null,
 			"rawModeData": ""
 		},
 		{
@@ -821,10 +865,10 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n//expexted 403\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\n// if Alfresco version <= 5.1.0\nif(alfrescoVersion <= 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse if(alfrescoVersion > 510)\n  describeResponse(201, 'RatingEntry', function() {\n    // other body checks\n  });\nelse \n  describeResponse(999, 'Error');",
+			"tests": "eval(globals['helperFunctions']);\n\n//TODO RA-1012\n//expexted 403\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n});",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1466669446389,
+			"time": 1468231645629,
 			"name": "(TODO) Negative: Add five star to an other user",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
@@ -869,6 +913,8 @@
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"folderId": null,
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -925,12 +971,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(204);",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129963280,
 			"name": "Positive: Remove like rating with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"timestamp": null,
 			"rawModeData": ""
 		},
 		{
@@ -987,12 +1035,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(201, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.myRating,\"myRating\").to.be.true;\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1464016150027,
 			"name": "Positive: Add like to file",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null,
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -1028,12 +1078,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(200, 'RatingEntry', function() {\n    // other body checks\n    it('expect to have values', function(){\n        expect(response.body.entry.id,\"id\").equals(\"likes\");\n    });\n});",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463129939945,
 			"name": "Positive: Retrieve like rating with version number",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "3eea2b2b-5fc9-2a3e-34fe-44c3ec5e574e",
+			"timestamp": null
 		},
 		{
 			"id": "dcdf11a4-a93c-24a2-382b-ee8e6477f6c3",
@@ -1047,12 +1099,14 @@
 			"version": 2,
 			"tests": "eval(globals['helperFunctions']);\n\ndescribeResponse(405, 'Error');",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463408229249,
 			"name": "Negative: Add like to a tag",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
 			"responses": [],
+			"folder": "7e5b53f8-0753-eec4-323b-f90acc1de6f9",
+			"timestamp": null,
 			"rawModeData": "{\n  \"id\": \"likes\",\n  \"myRating\": true\n}"
 		},
 		{
@@ -1115,12 +1169,33 @@
 			"version": 2,
 			"tests": "tests[request.name] = responseCode.code === 200;",
 			"currentHelper": "normal",
-			"helperAttributes": {},
+			"helperAttributes": "{}",
 			"time": 1463582587142,
 			"name": "Delete folder",
 			"description": "",
 			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c",
-			"responses": []
+			"responses": [],
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"timestamp": null
+		},
+		{
+			"folder": "188ba5bf-78d2-83d5-04c3-820ffdc1f2b5",
+			"id": "fb02a309-c8ec-0a42-aba3-54dccdc0ffd8",
+			"name": "Delete tag",
+			"dataMode": "raw",
+			"data": [],
+			"rawModeData": "",
+			"descriptionFormat": null,
+			"description": "Should be already deleted!",
+			"headers": "Authorization: {{user1Auth}}\nContent-Type: application/json\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "{{baseUrl}}/{{networkId}}/public/alfresco/versions/1/nodes/{{nodeId}}/tags/{{tagId}}",
+			"preRequestScript": null,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "e918dbbe-9fc4-7aac-e9dc-c647dcd82b5c"
 		}
 	]
 }
