@@ -19,6 +19,7 @@ To select the version of the repository to execute the tests against override th
 Other usable and tested versions are:
 
 `5.2.a-EA`
+`5.2-RETURN-OF-THE-API-SNAPSHOT`
 
 #### Including newer collections
 
@@ -31,3 +32,5 @@ A combinations which should work:
 - `mvn clean install`
 - `mvn clean install -Dalfresco.platform.version=5.2.a-EA`
 - `mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2`
+- `mvn clean install -Dalfresco.platform.version=5.2-RETURN-OF-THE-API-SNAPSHOT`
+- `mvn clean install -Dalfresco.platform.version=5.2-RETURN-OF-THE-API-SNAPSHOT -P5.2`
