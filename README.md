@@ -12,25 +12,20 @@ The results can be found in the target folder. Each collection outputs a file co
 
 #### Overriding repository version
 
-To select the version of the repository to execute the tests against override the alfresco.platform.version property, for example to run the tests against 5.1.d use:
+To select the version of the repository to execute the tests against override the alfresco.platform.version property, for example to run the tests against 5.2.a-EA use:
 
-`mvn install -Dalfresco.platform.version=5.1.d`
-
-Other usable and tested versions are:
-
-`5.2.a-EA`
-`5.2-RETURN-OF-THE-API-SNAPSHOT`
+`mvn install -Dalfresco.platform.version=5.2.a-EA`
 
 #### Including newer collections
 
-For including newer collections you can use a profile. The profiles are declared in the pom.xml. 
-Currently used profiles are:
+By default, the collections executed will only test the APIs avaialble in releases between 4.2 and 5.1.
 
-`-P5.2` for version 5.2.x and newer
+To include collections that test the APIs added since 5.1 activate the appropriate profile when executing the maven command. 
 
-A combinations which should work:
-- `mvn clean install`
-- `mvn clean install -Dalfresco.platform.version=5.2.a-EA`
-- `mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2`
-- `mvn clean install -Dalfresco.platform.version=5.2-RETURN-OF-THE-API-SNAPSHOT`
-- `mvn clean install -Dalfresco.platform.version=5.2-RETURN-OF-THE-API-SNAPSHOT -P5.2`
+Profiles currently available are:
+
+- 5.2
+
+For example, to run all collections against the 5.2.a Early Access Community release execute the following command:
+
+`mvn clean install -Dalfresco.platform.version=5.2.a-EA -P5.2`

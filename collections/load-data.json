@@ -107,7 +107,7 @@
 			"rawModeData": "",
 			"tests": "// Small workaround that swagger not support any type\nvar schema = JSON.parse(responseBody);\n// Temporarily removed cause that are bugs which needs to be fixed\ndelete schema.definitions.Rating.properties['myRating']; // multiple values\ndelete schema.definitions.Rating.properties['aggregate']; // multiple values\ndelete schema.definitions.Preference.properties['value']; // multiple values\n\n\npostman.setGlobalVariable('alfresco-schema', JSON.stringify(schema));",
 			"preRequestScript": "",
-			"url": "https://raw.githubusercontent.com/Alfresco/rest-api-bck/master/src/test/resources/alfresco-core.json?token=ARiq8je9QZLvSflqRN9cafS9MXTPsMRSks5XhO8rwA%3D%3D",
+			"url": "https://raw.githubusercontent.com/Alfresco/rest-api-bck/master/src/test/resources/alfresco-core.json",
 			"responses": []
 		}
 	]
