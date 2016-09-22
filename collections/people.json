@@ -1982,7 +1982,7 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1024\n// Expected would be a 404\ndescribeResponse(500);",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1024\n// Expected would be a 404\n//describeResponse(500);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1464249122508,
