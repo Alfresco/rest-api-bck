@@ -2009,7 +2009,7 @@
 			"data": [],
 			"dataMode": "raw",
 			"version": 2,
-			"tests": "eval(globals['helperFunctions']);\n\n// RA-1042\n// expected would be a 400\n\ndescribeResponse(500);",
+			"tests": "eval(globals['helperFunctions']);\n\n// RA-1042\n// expected would be a 400\n\n//describeResponse(500);",
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1468231757758,
