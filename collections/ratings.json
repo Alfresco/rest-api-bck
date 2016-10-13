@@ -463,7 +463,7 @@
 			"data": null,
 			"dataMode": "params",
 			"version": 2,
-			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n// RA-937\n// expected 200\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion < 520 || globals['alfrescoRevision'] === '(r128301-b8)')\n  describeResponse(500);\nelse if(alfrescoVersion >= 520)\n  describeResponse(400,'Error');\nelse \n  describeResponse(999, 'Error');",
+			"tests": "// shouldn't return an error!\neval(globals['helperFunctions']);\n\n// RA-937\n// expected 200\nvar alfrescoVersion = globals['majorVersion'] * 100 + globals['minorVersion'] * 10;\nif(alfrescoVersion < 520 || globals['alfrescoRevision'] === '(r128301-b8)')\n  describeResponse(500);\n//else if(alfrescoVersion >= 520)\n  //describeResponse(400,'Error');\n//else \n//  describeResponse(999, 'Error');",
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"time": 1468240570457,
