@@ -1,4 +1,7 @@
-# Alfresco REST API BCK
+
+# ***NOTE: This project is no longer used or maintained !***
+
+# Alfresco REST API BCK (DEPRECATED)
 
 The REST API BCK starts an Alfresco instance and runs a set of Postman collections (using the newman command line utility) against the repository.
 
